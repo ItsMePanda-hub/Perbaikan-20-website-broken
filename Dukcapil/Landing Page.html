@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Dukcapil Sawahlunto - Layanan Kependudukan Digital</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-secondary-container": "#616363",
+                        "surface-dim": "#dbd9dd",
+                        "outline": "#74777f",
+                        "surface-container": "#efedf0",
+                        "surface": "#faf9fc",
+                        "background": "#faf9fc",
+                        "surface-gray": "#F4F7FA",
+                        "on-secondary-fixed-variant": "#454747",
+                        "surface-tint": "#476083",
+                        "surface-bright": "#faf9fc",
+                        "primary-fixed": "#d4e3ff",
+                        "on-background": "#1a1c1e",
+                        "tertiary-fixed-dim": "#fdb69a",
+                        "inverse-primary": "#afc8f0",
+                        "on-error-container": "#93000a",
+                        "tertiary-container": "#391303",
+                        "on-primary-fixed": "#001c3a",
+                        "inverse-on-surface": "#f2f0f3",
+                        "primary": "#000613",
+                        "on-surface": "#1a1c1e",
+                        "primary-container": "#001f3f",
+                        "error-container": "#ffdad6",
+                        "on-secondary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary-fixed": "#ffdbce",
+                        "surface-variant": "#e3e2e5",
+                        "surface-container-highest": "#e3e2e5",
+                        "primary-fixed-dim": "#afc8f0",
+                        "secondary-fixed": "#e2e2e2",
+                        "text-muted": "#5F6368",
+                        "text-main": "#1A1A1A",
+                        "on-error": "#ffffff",
+                        "secondary-fixed-dim": "#c6c6c7",
+                        "on-primary": "#ffffff",
+                        "on-surface-variant": "#43474e",
+                        "on-tertiary-fixed": "#351002",
+                        "prestige-gold": "#D4AF37",
+                        "secondary": "#5d5f5f",
+                        "surface-container-low": "#f4f3f6",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "tertiary": "#110200",
+                        "on-tertiary": "#ffffff",
+                        "inverse-surface": "#2f3033",
+                        "outline-variant": "#c4c6cf",
+                        "secondary-container": "#dfe0e0",
+                        "urgency-red": "#C41E3A",
+                        "on-primary-container": "#6f88ad",
+                        "on-tertiary-fixed-variant": "#6b3a25",
+                        "on-primary-fixed-variant": "#2f486a",
+                        "error": "#ba1a1a",
+                        "on-tertiary-container": "#b5785f",
+                        "surface-container-high": "#e9e7eb"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "stack-sm": "8px",
+                        "stack-md": "16px",
+                        "stack-lg": "32px",
+                        "section-v": "80px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Inter"],
+                        "headline-md": ["IBM Plex Serif"],
+                        "label-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "display-lg": ["IBM Plex Serif"],
+                        "headline-lg": ["IBM Plex Serif"],
+                        "label-sm": ["Inter"],
+                        "headline-lg-mobile": ["IBM Plex Serif"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "600" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--spacing-stack-md);
+        }
+        @media (min-width: 768px) {
+            .bento-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .bento-wide { grid-column: span 2; }
+        }
+        .reveal-section {
+            opacity: 0;
+            transform: translateY(2.5rem);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .reveal-section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(2rem);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+            transform: rotate(45deg) translateY(-100%);
+            transition: transform 0.6s ease;
+        }
+        .btn-shimmer:hover::after {
+            transform: rotate(45deg) translateY(100%);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .reveal-section, .animate-fade-in-up {
+                transition: none;
+                animation: none;
+                opacity: 1;
+                transform: none;
+            }
+            .btn-shimmer::after {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased pt-20">
+<!-- TopNavBar -->
+<nav class="bg-primary/90 dark:bg-primary/95 backdrop-blur-md fixed top-0 w-full z-50 border-b border-prestige-gold/30 shadow-md">
+<div class="flex justify-between items-center px-gutter py-4 max-w-container-max mx-auto">
+<div class="flex items-center gap-4">
+<img alt="Dukcapil Sawahlunto Logo" class="h-12 w-auto object-contain" data-alt="Official logo of Dukcapil Sawahlunto featuring a shield emblem" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBDQKPbgvxbbgEQEPoXo4I0WKj-EVO7RMLXH-zH7W97npBYsPmAsCiQTdZ-ndCckPvi94DumHJZX7Cw71hI0tRlk2RFLRX-behTWd4PBNOYBwCZ6mitkSBh_vMvG93HWfv-qqd_n1IfQAVpQiqHggJV1GbCzIRyMr8jaPH1vF_EVN5GR27leSwKfbDmbMs7SdaxdA_jCnIpcfCebitSlTnLcOiA1ywhS8xkp4suP2sZMcBA5Igtsu8w1ggSYhNxPUpQaYQ"/>
+<span class="font-headline-md text-headline-md font-bold text-white hidden md:block">Dukcapil Sawahlunto</span>
+</div>
+<div class="hidden md:flex items-center gap-8 font-label-md text-label-md">
+<a class="relative group text-prestige-gold py-1" href="#">
+    Beranda
+    <span class="absolute -bottom-1 left-0 w-full h-0.5 bg-prestige-gold transition-all duration-300"></span>
+</a>
+<a class="relative group text-white/80 hover:text-white transition-colors py-1" href="#">
+    Profil
+    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="relative group text-white/80 hover:text-white transition-colors py-1" href="#">
+    Layanan
+    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="relative group text-white/80 hover:text-white transition-colors py-1" href="#">
+    Berita
+    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="relative group text-white/80 hover:text-white transition-colors py-1" href="#">
+    Unduh
+    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a>
+<a class="relative group text-white/80 hover:text-white transition-colors py-1" href="#">
+    Informasi
+    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-white/80 hover:text-white transition-colors p-2">
+<span class="material-symbols-outlined">search</span>
+</button>
+<div class="hidden sm:block h-12 py-1"><img alt="BerAKHLAK Bangga Melayani Bangsa" class="h-full w-auto object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAwnXBGndafWM-NI-SARd_seDKcweutmO3ydmUDPm4gDLkErgnrY6iNEMaDPlOzkIdi3y6bi-xa6RrBiKF_f-Go07NUdxxhqI5TOt7wF18cVBKCqYhB6U62Pa_MxPbq4nNx2XeuDmk4k5XqN47yr8USn9-tJIcjKzZ4CxFMZ3J0JtMhHIIREzFXCKOTk-TCu1uobgNTAO0TysM3tMGGPkgk56qRKv788sDAEDqwL-9ZWnvSIXCIN_xIqg8mHPVu_85ZvA8"/></div>
+<button class="md:hidden text-white p-2">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<section class="relative min-h-[80vh] flex items-center justify-center pt-section-v pb-section-v reveal-section active">
+<div class="absolute inset-0 bg-primary-container/80 z-10"></div>
+<div class="absolute inset-0 bg-cover bg-center z-0 mix-blend-overlay" data-alt="A modern government office building interior with digital service kiosks and citizens interacting with staff in a bright, professional environment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAoDk34vEISmEoaEEWYa-DStbZIQOIInw9h9BXMdVe4-8Aw3HTUyCD_AZD5uYAl_c532911FvEGCfOmNkWQ2SLbOvUgYKlEKtf8HOq4PmUtgyjRfs2utfuCbWCOT0BKVFYvg7o3KeTc2pgoVuSRQ6JWhU3xJKwHqpHmgjHHjmrXfIAudLuPAAC4_e4QGzcdHeHkFC7w_QLqx-WNNyID3MMgV7nN3yPXqp9Brg6QTU3NnbxBpgFiDr_yg')"></div>
+<div class="relative z-20 text-center px-margin-mobile md:px-gutter max-w-container-max mx-auto">
+<h1 class="font-display-lg text-display-lg text-white mb-6 animate-fade-in-up delay-100">Layanan Kependudukan Digital Kota Sawahlunto</h1>
+<p class="font-body-lg text-body-lg text-white/90 mb-10 max-w-2xl mx-auto animate-fade-in-up delay-200">Mewujudkan pelayanan prima yang Cepat, Akurat, dan Transparan untuk seluruh warga Sawahlunto melalui inovasi digital.</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up delay-300">
+<button class="btn-shimmer bg-prestige-gold text-primary font-label-md text-label-md px-8 py-3 rounded-lg font-bold hover:bg-white transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">Mulai Layanan</button>
+<button class="border-2 border-prestige-gold text-prestige-gold font-label-md text-label-md px-8 py-3 rounded-lg font-bold hover:bg-prestige-gold/10 transition-all hover:-translate-y-1">Cek Status Dokumen</button>
+</div>
+</div>
+</section>
+<!-- Service Stats Dashboard -->
+<section class="py-section-v bg-surface-gray px-margin-mobile md:px-gutter reveal-section">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Kinerja Harian</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Layanan Penerbitan Dokumen Kependudukan dan Pencatatan Sipil</p>
+</div>
+<div class="bento-grid">
+<!-- Stat Card 1 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between h-full bento-wide">
+<h3 class="font-label-md text-label-md text-white/80 uppercase tracking-wider mb-2">Total Layanan Hari Ini</h3>
+<div class="font-display-lg text-display-lg text-prestige-gold font-bold">1.254</div>
+<div class="mt-4 flex items-center gap-2 text-white/60 font-label-sm text-label-sm">
+<span class="material-symbols-outlined text-sm text-emerald-400">trending_up</span>
+<span class="">+12% dari kemarin</span>
+</div>
+</div>
+<!-- Stat Card 2 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+<h3 class="font-label-md text-label-md text-white/80 mb-2">Perekaman KTP EL</h3>
+<div class="font-headline-lg text-headline-lg text-prestige-gold font-bold">1</div>
+</div>
+<!-- Stat Card 3 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+<h3 class="font-label-md text-label-md text-white/80 mb-2">Pencetakan KTP EL</h3>
+<div class="font-headline-lg text-headline-lg text-prestige-gold font-bold">18</div>
+</div>
+<!-- Stat Card 4 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+<h3 class="font-label-md text-label-md text-white/80 mb-2">Sisa Blanko</h3>
+<div class="font-headline-lg text-headline-lg text-prestige-gold font-bold">885</div>
+</div>
+<!-- Stat Card 5 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+<h3 class="font-label-md text-label-md text-white/80 mb-2">Akta Kelahiran</h3>
+<div class="font-headline-lg text-headline-lg text-prestige-gold font-bold">8</div>
+</div>
+<!-- Stat Card 6 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between">
+<h3 class="font-label-md text-label-md text-white/80 mb-2">Akta Kematian</h3>
+<div class="font-headline-lg text-headline-lg text-prestige-gold font-bold">4</div>
+</div>
+<!-- Stat Card 7 -->
+<div class="bg-primary-container rounded-xl p-6 border border-prestige-gold/20 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between bento-wide">
+<div class="flex items-center justify-between mb-4">
+<h3 class="font-label-md text-label-md text-white/80">Sisa Blanko KIA</h3>
+<span class="material-symbols-outlined text-prestige-gold">inventory_2</span>
+</div>
+<div class="font-display-lg text-display-lg text-prestige-gold font-bold">5.742</div>
+</div>
+</div>
+</div>
+</section><section class="py-section-v bg-surface px-margin-mobile md:px-gutter reveal-section">
+<div class="max-w-container-max mx-auto">
+<div class="text-center mb-12">
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Layanan Kependudukan</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pilih jenis layanan kependudukan yang Anda butuhkan</p>
+</div>
+<div class="relative group">
+<!-- Navigation Arrows -->
+<button class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary hover:text-prestige-gold hover:scale-110 transition-all hidden md:flex border border-surface-variant">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 w-12 h-12 bg-white rounded-full shadow-lg flex items-center justify-center text-primary hover:text-prestige-gold hover:scale-110 transition-all hidden md:flex border border-surface-variant">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+<!-- Slider Container -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg overflow-hidden">
+<!-- Card 1: KTP -->
+<div class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-transparent hover:border-prestige-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group/card">
+<div class="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-prestige-gold text-3xl">badge</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Kartu Tanda Penduduk (KTP-el)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Pengurusan KTP elektronik baru, penggantian karena rusak/hilang, atau perubahan data.</p>
+<button class="w-full py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary hover:text-white transition-colors">Lihat Detail</button>
+</div>
+<!-- Card 2: KK -->
+<div class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-transparent hover:border-prestige-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group/card">
+<div class="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-prestige-gold text-3xl">groups</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Kartu Keluarga (KK)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Penerbitan KK baru, penambahan anggota keluarga, atau pemisahan KK.</p>
+<button class="w-full py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary hover:text-white transition-colors">Lihat Detail</button>
+</div>
+<!-- Card 3: Akta Kelahiran -->
+<div class="bg-white p-8 rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] border border-transparent hover:border-prestige-gold/30 hover:shadow-xl hover:-translate-y-2 transition-all duration-300 flex flex-col h-full group/card">
+<div class="w-14 h-14 bg-primary-container rounded-lg flex items-center justify-center mb-6 group-hover/card:scale-110 transition-transform duration-300">
+<span class="material-symbols-outlined text-prestige-gold text-3xl">child_care</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3">Akta Kelahiran</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-6 flex-grow">Pencatatan kelahiran anak dan penerbitan kutipan akta kelahiran resmi.</p>
+<button class="w-full py-3 border-2 border-primary text-primary font-label-md text-label-md rounded-lg hover:bg-primary hover:text-white transition-colors">Lihat Detail</button>
+</div>
+</div>
+<!-- Pagination Dots -->
+<div class="flex justify-center gap-2 mt-10">
+<div class="w-2.5 h-2.5 rounded-full bg-prestige-gold transition-transform hover:scale-125 cursor-pointer"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-variant transition-transform hover:scale-125 cursor-pointer"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-surface-variant transition-transform hover:scale-125 cursor-pointer"></div>
+</div>
+</div>
+<div class="mt-12 text-center">
+<button class="inline-flex items-center gap-2 border-2 border-prestige-gold text-prestige-gold font-label-md text-label-md px-8 py-3 rounded-lg font-bold hover:bg-prestige-gold/10 transition-all hover:-translate-y-1">
+        Lihat Semua Layanan <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- News Section -->
+<section class="py-section-v bg-surface px-margin-mobile md:px-gutter reveal-section">
+<div class="max-w-container-max mx-auto">
+<div class="flex justify-between items-end mb-12 border-b-2 border-surface-variant pb-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-primary mb-2">Berita Terkini</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Informasi terbaru seputar layanan dan kegiatan</p>
+</div>
+<a class="hidden md:flex items-center gap-1 font-label-md text-label-md text-primary hover:text-prestige-gold transition-colors group" href="#">
+                    Lihat Semua <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-lg">
+<!-- News Card 1 -->
+<article class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="relative h-48 overflow-hidden">
+<img alt="Berita 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="People attending a government meeting or presentation regarding public services" src="https://lh3.googleusercontent.com/aida/AEtjO1XTFfowy_VY_OBskY9rEMjy7ST_G1Ry2SMTUbMhXY2WpqJCmOocZJr0tmDAA81SZbIhFsv_Zq9NkKtmZ_t5cVSf-5O5ez5tkpS4hhK4SQ_s7iGInwwQqU2f9WH0FTSgvcUr9VWzPWwwWUfK1h7JTnCj8NolCrvH3RF-SgVx3YigANzwnxwgBhJpmHBhke4exTFZg1ogssRSzlH4iBFN4ofnW0Kf6uyaVANYxHK8cUtmPZJTHsvOqF4ykbM"/>
+</div>
+<div class="p-6 flex flex-col h-full">
+<div class="font-label-sm text-label-sm text-prestige-gold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">calendar_today</span> 27 Nov 2025
+                        </div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 line-clamp-2 group-hover:text-prestige-gold transition-colors">Sawahlunto Tuntaskan Penilaian Adipura Tahap II 2025</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-3">Kota Sawahlunto telah merampungkan proses penilaian Adipura Tahap II tahun 2025. Penilaian yang berlangsung selama empat hari ini berhasil dituntaskan...</p>
+<a class="mt-auto font-label-md text-label-md text-urgency-red hover:text-primary transition-colors inline-flex items-center gap-1 uppercase tracking-wider group/link" href="#">
+                            Baca Selengkapnya <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- News Card 2 -->
+<article class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="relative h-48 overflow-hidden">
+<img alt="Berita 2" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="A graphic or poster warning about digital identity fraud and scams" src="https://lh3.googleusercontent.com/aida/AEtjO1WSa841qAdYVnZM2Bii5AdSTX-Oqn23QyrpAGLJKTa_BBmPj5aho5yAM2YZwQOtOGc6zjxzeJpjT8OymWhCzKUMb38eZgvQeGtLJbRa2K0msHRmo-35AbQHqKS3sU6NFX_C0sOq1njXx3Ki7wOc8dcs59xILYmJH_SymNNWkbvY259-njGakhbMvQnHNF6gnM4bHVIWvMAV420zuyqhkh53riozd2VMH5kgfaOcLtD22zpE9dB67W4rpoVk"/>
+</div>
+<div class="p-6 flex flex-col h-full">
+<div class="font-label-sm text-label-sm text-prestige-gold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">calendar_today</span> 11 Jun 2025
+                        </div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 line-clamp-2 group-hover:text-prestige-gold transition-colors">Waspadai Penipuan Berkedok Aktivasi Identitas (IKD)</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-3">Direktorat Jendral Kependudukan dan Pencatatan Sipil (Ditjen Dukcapil), Kementrian Dalam Negeri Republik Indonesia menghimbau masyarakat...</p>
+<a class="mt-auto font-label-md text-label-md text-urgency-red hover:text-primary transition-colors inline-flex items-center gap-1 uppercase tracking-wider group/link" href="#">
+                            Baca Selengkapnya <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</article>
+<!-- News Card 3 -->
+<article class="bg-white rounded-xl shadow-[0px_4px_20px_rgba(0,0,0,0.05)] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group">
+<div class="relative h-48 overflow-hidden">
+<img alt="Berita 3" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Officials participating in a formal signing ceremony or meeting" src="https://lh3.googleusercontent.com/aida/AEtjO1UOHHyRGxAXCbBv-7WfQ32EYEhk81OPVMpmxd_Jw4CCP60JUa7NYKzgFEHO0KuMDZyWnPuVaXMnr2mfiMGBFkdbWu5dRewJzeIQSmWBmSOEoeQqbS_txqQ8kBED9Daqdqvqn-FKVpdV3ylzAtz_f5NYearz0iwQnjvgWw9vKXEF-5cExg7WwK33fJ1xA4AF5bvD3shs7iBYKdHInA4_LcPCZkhRCluVa7xLtjRg4OdnRYa5smmDKF8cz6Ns"/>
+</div>
+<div class="p-6 flex flex-col h-full">
+<div class="font-label-sm text-label-sm text-prestige-gold mb-3 flex items-center gap-2">
+<span class="material-symbols-outlined text-xs">calendar_today</span> 23 Mei 2025
+                        </div>
+<h3 class="font-headline-md text-headline-md text-primary mb-3 line-clamp-2 group-hover:text-prestige-gold transition-colors">Perjanjian Kerja Sama Lintas Perangkat Daerah</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-4 line-clamp-3">Dalam rangka menghilangkan rasa kebosanan masyarakat menunggu saat layanan dan meningkatkan minat baca masyarakat Kota Sawahlunto...</p>
+<a class="mt-auto font-label-md text-label-md text-urgency-red hover:text-primary transition-colors inline-flex items-center gap-1 uppercase tracking-wider group/link" href="#">
+                            Baca Selengkapnya <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</article>
+</div>
+<div class="mt-8 text-center md:hidden">
+<button class="border-2 border-primary text-primary font-label-md text-label-md px-6 py-2 rounded-lg font-bold w-full hover:bg-primary/5 transition-colors">Lihat Semua Berita</button>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-primary dark:bg-primary-container text-on-primary dark:text-on-primary-container w-full pt-section-v pb-8 border-t-4 border-prestige-gold shadow-2xl">
+<div class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-4 gap-stack-lg mb-12">
+<div class="md:col-span-1">
+<div class="flex items-center gap-3 mb-6">
+<img alt="Logo Footer" class="h-12 w-auto" data-alt="Official logo of Dukcapil Sawahlunto" src="https://lh3.googleusercontent.com/aida/AEtjO1UxBW6VPRkDyqyYVcR2bBweFBvvQfQJgf2Go8BQrqvxyZTdZUZLj3bSj9SdLDBHlsGp6r7nrsF47kGd9Mx8gpCsSf9VdGHYoc4lSRjJ8Zy6TCs61t_QhQdFJw8I_S5BGMDguwXnRYR7XioFTYyraxxYPKTS2BNr-zby5oFbTgnnnM4U0in6ERUzfFA80QE0cbZ_CY_2lOTYNbrIUExOE_PKHB_iP4ERgKOqvnUyXA8Oey8ReV3z53jI1pQa"/>
+<span class="font-headline-md text-headline-md text-prestige-gold">Dukcapil</span>
+</div>
+<p class="font-body-md text-body-md text-white/80 mb-6">Pemerintah Kota Sawahlunto</p>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-6">Kontak Kami</h4>
+<ul class="space-y-4 font-body-md text-body-md text-white/80">
+<li class="flex items-start gap-3 hover:text-prestige-gold transition-colors cursor-default">
+<span class="material-symbols-outlined text-prestige-gold mt-1">location_on</span>
+<span class="">Jalan Soekarno-Hatta Sapan Kelurahan Durian II Kecamatan Barangin Kota Sawahlunto</span>
+</li>
+<li class="flex items-center gap-3 hover:text-prestige-gold transition-colors cursor-default">
+<span class="material-symbols-outlined text-prestige-gold">call</span>
+<span class="">0813-6533-2912</span>
+</li>
+<li class="flex items-center gap-3 hover:text-prestige-gold transition-colors cursor-default">
+<span class="material-symbols-outlined text-prestige-gold">mail</span>
+<span class="">dukcapil@sawahluntokota.go.id</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-6">Tautan Penting</h4>
+<ul class="space-y-3 font-label-md text-label-md">
+<li class=""><a class="relative group text-white/70 hover:text-prestige-gold transition-colors py-1 inline-block" href="#">
+    Kebijakan Privasi
+    <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a></li>
+<li class=""><a class="relative group text-white/70 hover:text-prestige-gold transition-colors py-1 inline-block" href="#">
+    Syarat &amp; Ketentuan
+    <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a></li>
+<li class=""><a class="relative group text-white/70 hover:text-prestige-gold transition-colors py-1 inline-block" href="#">
+    Peta Situs
+    <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a></li>
+<li class=""><a class="relative group text-white/70 hover:text-prestige-gold transition-colors py-1 inline-block" href="#">
+    Kontak Kami
+    <span class="absolute -bottom-0.5 left-0 w-0 h-px bg-prestige-gold transition-all duration-300 group-hover:w-full"></span>
+</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-headline-md text-headline-md text-white mb-6">Ikuti Kami</h4>
+<div class="flex gap-4 mb-8">
+<a class="w-10 h-10 rounded-full border border-prestige-gold flex items-center justify-center text-prestige-gold hover:bg-prestige-gold hover:text-primary hover:scale-110 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">photo_camera</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-prestige-gold flex items-center justify-center text-prestige-gold hover:bg-prestige-gold hover:text-primary hover:scale-110 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">thumb_up</span>
+</a>
+<a class="w-10 h-10 rounded-full border border-prestige-gold flex items-center justify-center text-prestige-gold hover:bg-prestige-gold hover:text-primary hover:scale-110 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">play_arrow</span>
+</a>
+</div>
+</div>
+</div>
+<div class="max-w-container-max mx-auto px-gutter border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="font-body-md text-body-md text-white/60">
+                © 2024 Dinas Kependudukan dan Pencatatan Sipil Kota Sawahlunto. All Rights Reserved.
+            </div>
+<div class="flex gap-4">
+<div class="bg-white/5 rounded px-4 py-2 text-center hover:bg-white/10 transition-colors">
+<div class="font-label-sm text-label-sm text-white/60">Kunjungan Hari Ini</div>
+<div class="font-headline-md text-headline-md text-prestige-gold">1</div>
+</div>
+<div class="bg-white/5 rounded px-4 py-2 text-center hover:bg-white/10 transition-colors">
+<div class="font-label-sm text-label-sm text-white/60">Bulan Ini</div>
+<div class="font-headline-md text-headline-md text-prestige-gold">732</div>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Stop observing once it has been revealed
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        });
+
+        document.querySelectorAll('.reveal-section').forEach((el) => {
+            // Remove 'active' class initially from sections that shouldn't be active immediately
+            if(!el.classList.contains('pt-section-v')) {
+                el.classList.remove('active');
+            }
+            observer.observe(el);
+        });
+    });
+</script>
+</body></html>
