@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Situs Resmi Dinas Perpustakaan dan Kearsipan Kota Sawahlunto. Pusat rujukan literasi Perpustakaan Umum Adinegoro, pengelolaan arsip sejarah tambang Ombilin, aplikasi SRIKANDI, dan pembinaan perpustakaan nagari.">
+  <title>Dinas Perpustakaan dan Kearsipan — Kota Sawahlunto</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              ink: '#0D1B2A',
+              inkSlate: '#1B263B',
+              inkLight: '#415A77',
+              gold: '#C59B27',
+              goldLight: '#D4A373',
+              canvas: '#F7F5EE',
+              parchment: '#EFECE2',
+              cream: '#FAF8F5'
+            }
+          },
+          fontFamily: {
+            primary: ['Panamera', 'sans-serif'],
+            secondary: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#F7F5EE] text-[#0D1B2A] font-secondary antialiased min-h-screen selection:bg-[#0D1B2A] selection:text-white">
+
+  <!-- ============================================================
+       1. CIVIC MASTHEAD & NAVIGATION (CLEAN, NO TOP BAR, NO SHADOWS)
+       ============================================================ -->
+  <header class="w-full px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto pt-10 sm:pt-14 pb-8 sm:pb-10">
+
+    <!-- Main Departmental Masthead (Starts Immediately, No Unnecessary Top Sub-bar) -->
+    <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-8 pb-8 border-b border-[#0D1B2A]/15">
+      
+      <!-- Left: Monumental Brand Typography -->
+      <div class="space-y-2">
+        <a href="index.html" class="inline-block focus:outline-none group">
+          <h1 class="font-primary font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[84px] xl:text-[96px] text-[#0D1B2A] tracking-[-0.03em] leading-none select-none group-hover:text-[#C59B27] transition-colors" data-animate-words>
+            DPK Sawahlunto
+          </h1>
+        </a>
+        <p class="text-base sm:text-lg text-[#415A77] font-secondary font-medium tracking-wide">
+          Dinas Perpustakaan dan Kearsipan Kota Sawahlunto
+        </p>
+      </div>
+
+      <!-- Right: Navigation, Actions & Regional Emblem -->
+      <div class="flex flex-wrap items-center justify-between xl:justify-end gap-6 sm:gap-10">
+        
+        <!-- Navigation Pills (Generous, Distinctive, Flat) -->
+        <nav class="flex items-center gap-2 sm:gap-3 flex-wrap" aria-label="Menu Utama">
+          <a href="index.html" class="masthead-pill active" aria-current="page">beranda</a>
+          <a href="#layanan" class="masthead-pill">layanan literasi</a>
+          <button onclick="openProfilModal()" class="masthead-pill cursor-pointer focus:outline-none">profil</button>
+          <a href="berita.html" class="masthead-pill">warta pustaka</a>
+          <button onclick="openUnduhModal()" class="masthead-pill cursor-pointer focus:outline-none">katalog & unduhan</button>
+        </nav>
+
+        <!-- Social Icons & Municipal Seal -->
+        <div class="flex items-center gap-3 pl-3 sm:pl-5 border-l border-[#0D1B2A]/15">
+          <div class="flex items-center gap-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook DPK Sawahlunto">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram DPK Sawahlunto">
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:dpk@sawahluntokota.go.id" class="social-icon-btn" aria-label="Email Resmi DPK Sawahlunto">
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+
+          <img src="assets/logo-sawahlunto.png" alt="Lambang Daerah Kota Sawahlunto" class="h-14 sm:h-16 w-auto object-contain ml-2 select-none" loading="eager">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2. HERO STAGE & LIVE TELEMETRY BAR (GENEROUS WHITESPACE, NO SHADOWS)
+         ============================================================ -->
+    <div class="relative w-full rounded-3xl overflow-hidden min-h-[500px] sm:min-h-[580px] lg:min-h-[640px] flex flex-col justify-between p-8 sm:p-14 lg:p-16 border border-[#0D1B2A]/15 my-8 sm:my-10">
+      
+      <!-- Background Photography -->
+      <img src="assets/hero-dpk.jpg" alt="Ruang Baca Megah Perpustakaan Sawahlunto" class="absolute inset-0 w-full h-full object-cover object-center select-none" loading="eager">
+      
+      <!-- Scholastic Ink Tint Gradient -->
+      <div class="absolute inset-0 bg-gradient-to-t from-[#0D1B2A] via-[#0D1B2A]/70 to-transparent"></div>
+
+      <!-- Top Tag in Hero -->
+      <div class="relative z-10">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#0D1B2A]/85 text-white text-xs sm:text-sm font-semibold uppercase tracking-wider backdrop-blur-sm border border-[#C59B27]/40">
+          <span class="w-2.5 h-2.5 rounded-full bg-[#C59B27]"></span>
+          Khazanah Pustaka & Arsip Kota Pusaka
+        </span>
+      </div>
+
+      <!-- Hero Bottom Content Area -->
+      <div class="relative z-10 max-w-4xl space-y-5">
+        <h2 class="font-primary font-bold text-3xl sm:text-5xl lg:text-[58px] text-white leading-[1.05] tracking-tight" data-animate-words>
+          Memajukan Literasi Bangsa, Merawat Memori Kolektif Warisan Sejarah Ombilin
+        </h2>
+        <p class="text-base sm:text-lg md:text-xl text-[#EFECE2] font-secondary max-w-2xl leading-relaxed">
+          Dedikasi layanan perpustakaan inklusif berbasis pemberdayaan masyarakat di Perpustakaan Umum Adinegoro, serta preservasi dokumen otentik kearsipan daerah Kota Sawahlunto.
+        </p>
+        <div class="pt-3 flex flex-wrap items-center gap-4">
+          <a href="#layanan" class="btn-pill-gold px-8 py-3.5 text-sm sm:text-base font-semibold inline-flex items-center gap-2">
+            <span>Jelajahi Layanan DPK</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+          </a>
+          <button onclick="openUnduhModal()" class="btn-pill-light px-8 py-3.5 text-sm sm:text-base font-semibold inline-flex items-center gap-2 focus:outline-none">
+            <span>Katalog Induk Daerah</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Live Telemetry Data Strip (Flat, Spacious, No Shadows) -->
+    <div class="telemetry-bar grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 p-8 sm:p-10 mt-8">
+      
+      <!-- Metric 1 -->
+      <div class="telemetry-item pr-6">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#415A77] uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-[#C59B27]"></span>
+          Indeks Literasi (IPLM)
+        </div>
+        <div class="font-primary font-bold text-3xl sm:text-4xl text-[#0D1B2A]">84,62 (Tinggi)</div>
+        <div class="text-xs sm:text-sm text-[#415A77] mt-1">Survei Perpusnas RI & DPK</div>
+      </div>
+
+      <!-- Metric 2 -->
+      <div class="telemetry-item pr-6">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#415A77] uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-[#C59B27]"></span>
+          Koleksi Pustaka Adinegoro
+        </div>
+        <div class="font-primary font-bold text-3xl sm:text-4xl text-[#0D1B2A]">38.450+ Eksemplar</div>
+        <div class="text-xs sm:text-sm text-[#415A77] mt-1">Buku Fisik & e-Book Terkatalog</div>
+      </div>
+
+      <!-- Metric 3 -->
+      <div class="telemetry-item pr-6">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#415A77] uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-[#C59B27]"></span>
+          Arsip Statis Ombilin
+        </div>
+        <div class="font-primary font-bold text-3xl sm:text-4xl text-[#0D1B2A]">12.800+ Berkas</div>
+        <div class="text-xs sm:text-sm text-[#415A77] mt-1">Peta Tambang & Naskah Kuno</div>
+      </div>
+
+      <!-- Metric 4 -->
+      <div class="telemetry-item">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#415A77] uppercase tracking-wider mb-2">
+          <span class="w-2 h-2 rounded-full bg-[#C59B27]"></span>
+          Integrasi SRIKANDI
+        </div>
+        <div class="font-primary font-bold text-3xl sm:text-4xl text-[#0D1B2A]">100% Seluruh OPD</div>
+        <div class="text-xs sm:text-sm text-[#415A77] mt-1">Sistem Kearsipan Dinamis Digital</div>
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- ============================================================
+       3. 4 PILAR BIDANG LAYANAN DPK (GENEROUS SPACING, NO SHADOWS)
+       ============================================================ -->
+  <section id="layanan" class="w-full pt-20 sm:pt-28 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-14 sm:mb-18">
+      <div class="max-w-3xl space-y-3">
+        <span class="inline-block px-4 py-1.5 rounded-full bg-[#EFECE2] text-[#0D1B2A] text-xs font-bold uppercase tracking-wider border border-[#0D1B2A]/15">
+          Tupoksi & Program Prioritas
+        </span>
+        <h2 class="font-primary font-bold text-4xl sm:text-6xl md:text-7xl text-[#0D1B2A] tracking-tight leading-none" data-animate-words>
+          4 Pilar Layanan Literasi & Kearsipan
+        </h2>
+        <p class="text-base sm:text-lg text-[#415A77] font-secondary leading-relaxed pt-2">
+          Komitmen penyediaan akses pengetahuan bermutu bagi seluruh lapisan masyarakat, modernisasi kearsipan birokrasi, serta preservasi memori sejarah tambang batubara warisan dunia UNESCO.
+        </p>
+      </div>
+
+      <div>
+        <button onclick="openProfilModal()" class="btn-pill-light px-7 py-3.5 text-sm sm:text-base font-semibold inline-flex items-center gap-2.5 focus:outline-none cursor-pointer">
+          <span>Struktur & Tugas Dinas</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Sector Cards Grid (Flat Hairline Borders, Generous Padding) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      
+      <!-- Pilar 1: Perpustakaan Adinegoro -->
+      <article class="sector-card p-8 sm:p-10 min-h-[420px]">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold text-[#C59B27] uppercase tracking-widest font-primary">Pilar 01</span>
+            <span class="px-3 py-1 rounded-md bg-[#EFECE2] text-[#0D1B2A] text-xs font-semibold border border-[#0D1B2A]/10">Layanan Pustaka</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl sm:text-[26px] text-[#0D1B2A] leading-snug mb-4">
+            Perpustakaan Umum Adinegoro & TPBIS
+          </h3>
+          <p class="text-sm sm:text-base text-[#415A77] leading-relaxed">
+            Pusat rujukan literasi inklusi sosial, sirkulasi 38.000+ eksemplar buku, ruang baca anak, lokakarya kecakapan hidup, dan armada mobil Pustaka Keliling (Puskel) nagari.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0D1B2A]/10 mt-8">
+          <span class="text-xs font-semibold text-[#0D1B2A] block mb-1">Fasilitas Unggulan:</span>
+          <span class="text-xs sm:text-sm text-[#415A77]">Gedung Pustaka Adinegoro & Puskel</span>
+        </div>
+      </article>
+
+      <!-- Pilar 2: Kearsipan SRIKANDI -->
+      <article class="sector-card p-8 sm:p-10 min-h-[420px]">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold text-[#C59B27] uppercase tracking-widest font-primary">Pilar 02</span>
+            <span class="px-3 py-1 rounded-md bg-[#EFECE2] text-[#0D1B2A] text-xs font-semibold border border-[#0D1B2A]/10">Kearsipan Dinamis</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl sm:text-[26px] text-[#0D1B2A] leading-snug mb-4">
+            Tata Kelola Kearsipan & SRIKANDI
+          </h3>
+          <p class="text-sm sm:text-base text-[#415A77] leading-relaxed">
+            Penerapan Sistem Informasi Kearsipan Dinamis Terintegrasi (SRIKANDI), penataan depo arsip inaktif pemerintah daerah, pengawasan audit kearsipan, dan efisiensi birokrasi digital.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0D1B2A]/10 mt-8">
+          <span class="text-xs font-semibold text-[#0D1B2A] block mb-1">Implementasi Sistem:</span>
+          <span class="text-xs sm:text-sm text-[#415A77]">100% Terkoneksi SRIKANDI Nasional</span>
+        </div>
+      </article>
+
+      <!-- Pilar 3: Preservasi Ombilin -->
+      <article class="sector-card p-8 sm:p-10 min-h-[420px]">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold text-[#C59B27] uppercase tracking-widest font-primary">Pilar 03</span>
+            <span class="px-3 py-1 rounded-md bg-[#EFECE2] text-[#0D1B2A] text-xs font-semibold border border-[#0D1B2A]/10">Warisan Budaya</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl sm:text-[26px] text-[#0D1B2A] leading-snug mb-4">
+            Preservasi Arsip Warisan Ombilin
+          </h3>
+          <p class="text-sm sm:text-base text-[#415A77] leading-relaxed">
+            Penyelamatan dan digitalisasi peta tambang batubara abad ke-19, naskah kuno Minangkabau, register ketenagakerjaan kolonial, dan repositori memori dunia UNESCO.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0D1B2A]/10 mt-8">
+          <span class="text-xs font-semibold text-[#0D1B2A] block mb-1">Khazanah Khusus:</span>
+          <span class="text-xs sm:text-sm text-[#415A77]">12.800+ Berkas Sejarah Ombilin</span>
+        </div>
+      </article>
+
+      <!-- Pilar 4: Pembinaan Nagari & POCADI -->
+      <article class="sector-card p-8 sm:p-10 min-h-[420px]">
+        <div>
+          <div class="flex items-center justify-between mb-6">
+            <span class="text-xs font-bold text-[#C59B27] uppercase tracking-widest font-primary">Pilar 04</span>
+            <span class="px-3 py-1 rounded-md bg-[#EFECE2] text-[#0D1B2A] text-xs font-semibold border border-[#0D1B2A]/10">Literasi Komunitas</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl sm:text-[26px] text-[#0D1B2A] leading-snug mb-4">
+            Pembinaan Perpustakaan Nagari & POCADI
+          </h3>
+          <p class="text-sm sm:text-base text-[#415A77] leading-relaxed">
+            Pendampingan akreditasi perpustakaan sekolah dan desa nagari, instalasi Pojok Baca Digital (POCADI) di ruang publik, serta pemilihan Duta Baca Kota Sawahlunto.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0D1B2A]/10 mt-8">
+          <span class="text-xs font-semibold text-[#0D1B2A] block mb-1">Cakupan Wilayah:</span>
+          <span class="text-xs sm:text-sm text-[#415A77]">Perpustakaan Nagari & Sekolah se-Kota</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. WARTA PUSTAKA & KEARSIPAN (JOURNALISTIC NEWS, NO SHADOWS)
+       ============================================================ -->
+  <section id="berita" class="w-full pt-20 sm:pt-28 pb-20 sm:pb-32 px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-12 sm:mb-16">
+      <div>
+        <span class="inline-block px-4 py-1.5 rounded-full bg-[#EFECE2] text-[#0D1B2A] text-xs font-bold uppercase tracking-wider mb-3 border border-[#0D1B2A]/15">
+          Publikasi & Dokumentasi Kegiatan
+        </span>
+        <h2 class="font-primary font-bold text-4xl sm:text-6xl md:text-7xl text-[#0D1B2A] tracking-tight leading-none" data-animate-words>
+          Warta Pustaka & Kearsipan
+        </h2>
+      </div>
+      <div>
+        <a href="berita.html" class="btn-pill-ink px-8 py-3.5 text-sm sm:text-base font-semibold inline-flex items-center gap-2.5 group">
+          <span>Semua Berita & Publikasi</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Editorial Showcase: 1 Lead Story + 3 Complementary Stories (Flat) -->
+    <div class="space-y-10">
+      
+      <!-- Lead Featured Story -->
+      <article class="featured-story-frame p-8 sm:p-12 lg:p-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
+          
+          <div class="lg:col-span-7 space-y-5">
+            <div class="flex items-center gap-3">
+              <span class="inline-block px-4 py-1.5 rounded-full bg-[#C59B27] text-white text-xs font-semibold uppercase tracking-wider">
+                Sorotan Utama &bull; Perpustakaan Adinegoro
+              </span>
+              <span class="text-xs sm:text-sm text-[#EFECE2]">
+                Jumat, 04 September 2026 &bull; 4 menit baca
+              </span>
+            </div>
+
+            <h3 class="font-primary font-bold text-2xl sm:text-4xl lg:text-[44px] leading-[1.12] text-white">
+              <a href="berita-detail.html?id=1" class="hover:text-[#C59B27] transition">
+                Perpustakaan Umum Adinegoro Perkuat Transformasi Inklusi Sosial: Hadirkan Pusat Kreativitas dan Keterampilan Warga Sawahlunto
+              </a>
+            </h3>
+
+            <p class="text-base sm:text-lg text-[#EFECE2] font-secondary leading-relaxed line-clamp-3">
+              Perpustakaan Umum Adinegoro membuktikan bahwa perpustakaan masa kini bukan sekadar gudang buku, melainkan pusat pemberdayaan masyarakat berbasis kecakapan hidup dan literasi terapan.
+            </p>
+
+            <div class="pt-3 flex items-center justify-between gap-4">
+              <span class="text-xs sm:text-sm text-[#C59B27] font-medium">Oleh: Tim Humas DPK Sawahlunto</span>
+              <a href="berita-detail.html?id=1" class="btn-pill-gold px-8 py-3 text-sm sm:text-base font-semibold inline-block">
+                Baca Selengkapnya
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden aspect-video lg:aspect-square border border-white/20">
+              <img src="assets/pustaka-adinegoro.jpg" alt="Aktivitas Perpustakaan Umum Adinegoro" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- 3 Complementary Journal Cards (Flat Crisp Borders) -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
+        
+        <!-- Story 2: Arsip Ombilin -->
+        <article class="journal-card">
+          <div class="journal-card-image-wrap">
+            <img src="assets/arsip-ombilin.jpg" alt="Digitalisasi Arsip Tambang Ombilin">
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-[#0D1B2A]/90 text-white text-xs font-semibold uppercase tracking-wider border border-[#C59B27]/30">
+              Warisan Ombilin
+            </span>
+          </div>
+          <div class="p-7 sm:p-8 flex flex-col justify-between flex-1">
+            <div>
+              <span class="text-xs sm:text-sm text-[#415A77] block mb-2.5">Selasa, 01 September 2026</span>
+              <h4 class="journal-headline text-xl sm:text-[22px] mb-3.5">
+                <a href="berita-detail.html?id=2">
+                  Digitalisasi 12.800 Arsip Tambang Ombilin Abad Ke-19: DPK Amankan Memori Warisan UNESCO
+                </a>
+              </h4>
+              <p class="text-sm sm:text-base text-[#415A77] line-clamp-3 leading-relaxed">
+                Sebanyak 12.800 berkas arsip statis, peta lubang tambang, dan register buruh kolonial berhasil dialihmediakan ke format digital berkualitas tinggi.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#0D1B2A]/10 mt-6 flex items-center justify-between">
+              <span class="text-xs text-[#415A77]">4 menit baca</span>
+              <a href="berita-detail.html?id=2" class="btn-pill-ink px-6 py-2.5 text-xs sm:text-sm font-semibold inline-block">
+                Selengkapnya
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 3: SRIKANDI -->
+        <article class="journal-card">
+          <div class="journal-card-image-wrap">
+            <img src="assets/hero-dpk.jpg" alt="Aplikasi SRIKANDI Sawahlunto">
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-[#0D1B2A]/90 text-white text-xs font-semibold uppercase tracking-wider border border-[#C59B27]/30">
+              Kearsipan & SRIKANDI
+            </span>
+          </div>
+          <div class="p-7 sm:p-8 flex flex-col justify-between flex-1">
+            <div>
+              <span class="text-xs sm:text-sm text-[#415A77] block mb-2.5">Kamis, 27 Agustus 2026</span>
+              <h4 class="journal-headline text-xl sm:text-[22px] mb-3.5">
+                <a href="berita-detail.html?id=3">
+                  Implementasi 100% Aplikasi SRIKANDI: Tata Kelola Administrasi Kearsipan Raih Predikat Memuaskan
+                </a>
+              </h4>
+              <p class="text-sm sm:text-base text-[#415A77] line-clamp-3 leading-relaxed">
+                Seluruh OPD di Sawahlunto resmi menggunakan aplikasi SRIKANDI, mewujudkan persuratan tanpa kertas dan arsip digital yang akuntabel.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#0D1B2A]/10 mt-6 flex items-center justify-between">
+              <span class="text-xs text-[#415A77]">3 menit baca</span>
+              <a href="berita-detail.html?id=3" class="btn-pill-ink px-6 py-2.5 text-xs sm:text-sm font-semibold inline-block">
+                Selengkapnya
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 4: POCADI -->
+        <article class="journal-card">
+          <div class="journal-card-image-wrap">
+            <img src="assets/pustaka-adinegoro.jpg" alt="Pojok Baca Digital POCADI">
+            <span class="absolute top-4 left-4 px-3.5 py-1 rounded-full bg-[#0D1B2A]/90 text-white text-xs font-semibold uppercase tracking-wider border border-[#C59B27]/30">
+              Literasi Nagari
+            </span>
+          </div>
+          <div class="p-7 sm:p-8 flex flex-col justify-between flex-1">
+            <div>
+              <span class="text-xs sm:text-sm text-[#415A77] block mb-2.5">Senin, 24 Agustus 2026</span>
+              <h4 class="journal-headline text-xl sm:text-[22px] mb-3.5">
+                <a href="berita-detail.html?id=4">
+                  Pojok Baca Digital (POCADI) Hadir di Titik Publik: DPK Sawahlunto Perluas Akses Bahan Pustaka
+                </a>
+              </h4>
+              <p class="text-sm sm:text-base text-[#415A77] line-clamp-3 leading-relaxed">
+                Fasilitas layar sentuh dan ribuan e-book gratis kini tersedia di ruang tunggu publik, memudahkan akses bahan bacaan berkualitas bagi warga dan pelajar.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#0D1B2A]/10 mt-6 flex items-center justify-between">
+              <span class="text-xs text-[#415A77]">3 menit baca</span>
+              <a href="berita-detail.html?id=4" class="btn-pill-ink px-6 py-2.5 text-xs sm:text-sm font-semibold inline-block">
+                Selengkapnya
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. ARCHITECTURAL CIVIC FOOTER (FLAT, NO SHADOWS)
+       ============================================================ -->
+  <footer class="w-full bg-[#0D1B2A] text-white pt-24 sm:pt-36 pb-12 sm:pb-16 px-6 sm:px-10 lg:px-14 xl:px-16 mt-20 sm:mt-28 border-t border-[#C59B27]/25">
+    <div class="max-w-[1920px] mx-auto space-y-16">
+      
+      <!-- 4-Column Civic Directory -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 pb-14 border-b border-white/10 text-sm font-secondary">
+        
+        <!-- Col 1: Institutional -->
+        <div class="space-y-4 lg:col-span-1">
+          <div class="flex items-center gap-3">
+            <img src="assets/logo-sawahlunto.png" alt="Lambang Daerah Kota Sawahlunto" class="h-12 w-auto object-contain">
+            <div>
+              <h4 class="font-primary font-bold text-base text-white">Pemerintah Kota Sawahlunto</h4>
+              <span class="text-xs text-[#C59B27]">Sumatera Barat</span>
+            </div>
+          </div>
+          <p class="text-xs sm:text-sm text-gray-300 leading-relaxed">
+            Dinas Perpustakaan dan Kearsipan berkomitmen memperluas akses pengetahuan masyarakat, memelihara khazanah buku di Perpustakaan Umum Adinegoro, serta menjaga keutuhan memori sejarah tambang batubara Ombilin.
+          </p>
+        </div>
+
+        <!-- Col 2: Alamat & Kontak -->
+        <div class="space-y-3">
+          <h4 class="font-primary font-bold text-sm uppercase tracking-wider text-[#C59B27]">Kantor Dinas</h4>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Jl. Soekarno-Hatta, Kelurahan Durian II,<br>
+            Kec. Barangin, Kota Sawahlunto,<br>
+            Sumatera Barat 25422 / 61110.
+          </p>
+          <div class="space-y-1 pt-1 text-xs sm:text-sm">
+            <p><span class="text-gray-400">Email:</span> <a href="mailto:dpk@sawahluntokota.go.id" class="text-[#D4A373] hover:underline">dpk@sawahluntokota.go.id</a></p>
+            <p><span class="text-gray-400">Telepon:</span> (0754) 61321</p>
+          </div>
+        </div>
+
+        <!-- Col 3: Layanan & Jam Operasional -->
+        <div class="space-y-3">
+          <h4 class="font-primary font-bold text-sm uppercase tracking-wider text-[#C59B27]">Layanan & Operasional</h4>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Senin - Kamis: 07.30 - 16.00 WIB<br>
+            Jumat: 07.30 - 16.30 WIB<br>
+            Sabtu: 08.30 - 14.00 WIB (Layanan Ruang Baca)<br>
+            Minggu & Hari Libur: Tutup
+          </p>
+          <div class="p-3.5 rounded-xl bg-white/5 border border-white/10 text-xs sm:text-sm text-gray-300">
+            <strong class="text-white block mb-0.5">Layanan Kartu Anggota Perpustakaan:</strong>
+            Pembuatan kartu anggota pemustaka gratis langsung jadi dan akses katalog online.
+          </div>
+        </div>
+
+        <!-- Col 4: Fasilitas Literasi & Kearsipan -->
+        <div class="space-y-3">
+          <h4 class="font-primary font-bold text-sm uppercase tracking-wider text-[#C59B27]">Fasilitas Pustaka & Arsip</h4>
+          <ul class="space-y-2 text-xs sm:text-sm text-gray-300">
+            <li>&bull; Gedung Perpustakaan Umum Adinegoro</li>
+            <li>&bull; Depo Kearsipan Inpres Kelurahan Durian</li>
+            <li>&bull; Pojok Baca Digital (POCADI) Sawahlunto</li>
+            <li>&bull; Armada Mobil Pustaka Keliling (Puskel)</li>
+            <li>&bull; Ruang Konservasi Naskah Kuno Minangkabau</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Monumental Brand Typography -->
+      <div class="w-full overflow-hidden select-none">
+        <h3 class="font-primary font-bold text-white text-4xl sm:text-7xl md:text-8xl lg:text-[7.5vw] tracking-[-0.03em] leading-[0.9] whitespace-nowrap">
+          DPK Sawahlunto
+        </h3>
+      </div>
+
+      <!-- Copyright & Heritage Line -->
+      <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs sm:text-sm text-gray-400 font-secondary">
+        <p>&copy; 2026 Pemerintah Kota Sawahlunto &bull; Dinas Perpustakaan dan Kearsipan</p>
+        <p>Khazanah Pustaka Warisan Budaya Dunia Ombilin &bull; Perpustakaan Adinegoro</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       6. MODALS (PROFIL & UNDUH, ZERO SHADOWS, ZERO EMOJIS)
+       ============================================================ -->
+
+  <!-- Profil Modal -->
+  <div id="profilModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 sm:p-6 md:p-10" role="dialog" aria-modal="true">
+    <div id="profilModalBackdrop" class="fixed inset-0 modal-backdrop"></div>
+    <div class="relative modal-box text-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto z-10 p-6 sm:p-10">
+      <button id="closeProfilModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer" aria-label="Tutup Profil">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <span class="inline-block px-3 py-1 rounded-full bg-[#C59B27] text-white text-xs font-medium uppercase tracking-wider mb-2">Profil Kelembagaan</span>
+      <h3 class="font-primary font-bold text-2xl sm:text-4xl text-white mb-6">
+        Dinas Perpustakaan dan Kearsipan Kota Sawahlunto
+      </h3>
+
+      <div class="space-y-6 font-secondary text-gray-200 text-sm sm:text-base leading-relaxed">
+        <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+          <h4 class="font-primary font-bold text-xl text-[#C59B27] mb-2">Visi Kelembagaan</h4>
+          <p class="italic text-white/90">"Terwujudnya Masyarakat Kota Sawahlunto yang Berbudaya Baca, Berpengetahuan Luas, dan Berdaya Saing Melalui Penguatan Layanan Perpustakaan Inklusif serta Tata Kelola Kearsipan Warisan Daerah yang Akuntabel."</p>
+        </div>
+
+        <div>
+          <h4 class="font-primary font-bold text-xl text-[#C59B27] mb-3">Misi Strategis</h4>
+          <ul class="list-disc pl-5 space-y-2 text-white/85">
+            <li>Meningkatkan kegemaran membaca masyarakat melalui transformasi perpustakaan berbasis inklusi sosial dan perluasan jangkauan pustaka keliling.</li>
+            <li>Mengembangkan koleksi bahan pustaka referensi, karya cetak dan karya rekam mengenai kebudayaan lokal serta sejarah tambang batubara Sawahlunto.</li>
+            <li>Mengoptimalkan sistem pengelolaan arsip dinamis berbasis aplikasi SRIKANDI demi terciptanya tertib administrasi pemerintahan daerah.</li>
+            <li>Melaksanakan penyelamatan, perawatan fisik, dan digitalisasi arsip statis sebagai memori kolektif bangsa warisan dunia UNESCO.</li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-white/10">
+          <h4 class="font-primary font-bold text-xl text-[#C59B27] mb-3">Struktur 4 Bidang Teknis</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-white/5 p-3.5 rounded-xl border border-white/10">Bidang Pengelolaan Perpustakaan & Pelestarian Bahan Pustaka</div>
+            <div class="bg-white/5 p-3.5 rounded-xl border border-white/10">Bidang Pembinaan & Pengembangan Perpustakaan</div>
+            <div class="bg-white/5 p-3.5 rounded-xl border border-white/10">Bidang Pengelolaan Arsip Dinamis & Sistem SRIKANDI</div>
+            <div class="bg-white/5 p-3.5 rounded-xl border border-white/10">Bidang Pengelolaan Arsip Statis & Preservasi Sejarah</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm text-gray-400">
+          <span>Alamat: Jl. Soekarno-Hatta, Durian II, Sawahlunto</span>
+          <span>Email: dpk@sawahluntokota.go.id</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unduh Modal -->
+  <div id="unduhModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
+    <div id="unduhModalBackdrop" class="fixed inset-0 modal-backdrop"></div>
+    <div class="relative modal-box text-white rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto z-10 p-6 sm:p-8">
+      <button id="closeUnduhModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer" aria-label="Tutup Unduh">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <span class="inline-block px-3 py-1 rounded-full bg-[#C59B27] text-white text-xs font-medium uppercase tracking-wider mb-2">Dokumen Publik Resmi</span>
+      <h3 class="font-primary font-bold text-2xl text-white mb-1">Katalog & Unduhan DPK</h3>
+      <p class="text-xs sm:text-sm text-gray-300 font-secondary mb-6">Pilih dokumen resmi dan katalog bahan pustaka DPK Kota Sawahlunto untuk diunduh</p>
+      <div id="unduhListContainer" class="space-y-3 font-secondary"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="news-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,354 @@
+/* ==========================================================================
+   DPK KOTA SAWAHLUNTO — CIVIC DESIGN SYSTEM (NO SHADOWS)
+   Dinas Perpustakaan dan Kearsipan Kota Sawahlunto
+   Palet: Midnight Scholastic Ink (#0D1B2A) & Antique Parchment Gold (#C59B27)
+   Prinsip: Generous Whitespaces, Bold Monumental Typography, Hairline Borders
+   STRICT ZERO EMOJIS & STRICT ZERO SHADOWS
+   ========================================================================== */
+
+/* 1. Typography: Panamera Webfont Declarations */
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Light.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Regular.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Medium.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Bold.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Black.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Global Resets & Flat Aesthetic (STRICT NO SHADOWS) */
+* {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+body {
+  background-color: #F7F5EE;
+  color: #0D1B2A;
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
+}
+
+.font-primary {
+  font-family: 'Panamera', sans-serif;
+}
+
+.font-secondary {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 3. Masthead Navigation Pills (Substantial & Spacious) */
+.masthead-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.65rem 1.4rem;
+  border-radius: 9999px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0D1B2A;
+  background-color: #EFECE2;
+  border: 1px solid rgba(13, 27, 42, 0.18);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.masthead-pill:hover {
+  background-color: #0D1B2A;
+  color: #FFFFFF;
+  border-color: #0D1B2A;
+}
+
+.masthead-pill.active {
+  background-color: #0D1B2A;
+  color: #FFFFFF;
+  border-color: #0D1B2A;
+  font-weight: 700;
+}
+
+/* Social Icon Buttons (Flat) */
+.social-icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  background-color: #EFECE2;
+  color: #0D1B2A;
+  border: 1px solid rgba(13, 27, 42, 0.18);
+  transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  background-color: #0D1B2A;
+  color: #FFFFFF;
+  border-color: #0D1B2A;
+}
+
+/* 4. Live Telemetry Bar (Flat Hairline Borders, Generous Padding) */
+.telemetry-bar {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 27, 42, 0.14);
+  border-radius: 2rem;
+}
+
+.telemetry-item {
+  position: relative;
+}
+
+.telemetry-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background-color: rgba(13, 27, 42, 0.12);
+}
+
+@media (max-width: 1024px) {
+  .telemetry-item:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* 5. 4 Pilar Sektor Cards (Spacious, Flat Crisp Borders) */
+.sector-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 27, 42, 0.14);
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.sector-card:hover {
+  border-color: #C59B27;
+  background-color: #FAF9F5;
+}
+
+/* 6. Editorial Warta Cards (Lead Story & Journal Cards) */
+.featured-story-frame {
+  background-color: #0D1B2A;
+  border: 1px solid rgba(197, 155, 39, 0.35);
+  border-radius: 2.5rem;
+  color: #FFFFFF;
+}
+
+.journal-card {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 27, 42, 0.14);
+  border-radius: 2rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.journal-card:hover {
+  border-color: #0D1B2A;
+  background-color: #FAF9F5;
+}
+
+.journal-card-image-wrap {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  position: relative;
+  background-color: #EFECE2;
+}
+
+.journal-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.journal-card:hover .journal-card-image-wrap img {
+  transform: scale(1.03);
+}
+
+.journal-headline {
+  font-family: 'Panamera', sans-serif;
+  font-weight: 700;
+  line-height: 1.22;
+  color: #0D1B2A;
+  transition: color 0.2s ease;
+}
+
+.journal-card:hover .journal-headline {
+  color: #C59B27;
+}
+
+/* 7. Action Button Pills (Substantial, Flat) */
+.btn-pill-ink {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #0D1B2A;
+  color: #FFFFFF;
+  border: 1px solid #0D1B2A;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-pill-ink:hover {
+  background-color: #1B263B;
+  border-color: #1B263B;
+  color: #FFFFFF;
+}
+
+.btn-pill-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #C59B27;
+  color: #FFFFFF;
+  border: 1px solid #C59B27;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-pill-gold:hover {
+  background-color: #B3891E;
+  border-color: #B3891E;
+  color: #FFFFFF;
+}
+
+.btn-pill-light {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background-color: #EFECE2;
+  color: #0D1B2A;
+  border: 1px solid rgba(13, 27, 42, 0.18);
+  transition: all 0.2s ease;
+  text-decoration: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-pill-light:hover {
+  background-color: #0D1B2A;
+  color: #FFFFFF;
+  border-color: #0D1B2A;
+}
+
+/* Category Filter Pills (Portal Berita) */
+.category-pill {
+  padding: 0.65rem 1.5rem;
+  border-radius: 9999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: #0D1B2A;
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 27, 42, 0.18);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.category-pill:hover {
+  border-color: #0D1B2A;
+  background-color: #EFECE2;
+}
+
+.category-pill.active {
+  background-color: #0D1B2A;
+  color: #FFFFFF;
+  border-color: #0D1B2A;
+  font-weight: 700;
+}
+
+/* Search Input (Flat Crisp Border) */
+.search-input {
+  background-color: #FFFFFF;
+  border: 1px solid rgba(13, 27, 42, 0.25);
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: #0D1B2A;
+  outline: none;
+}
+
+/* 8. Modals (Flat Architectural Styling, Zero Shadows) */
+.modal-backdrop {
+  background-color: rgba(13, 27, 42, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+.modal-box {
+  background-color: #0D1B2A;
+  border: 1px solid rgba(197, 155, 39, 0.35);
+}
+
+/* 9. Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F7F5EE;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C59B27;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #0D1B2A;
+}
