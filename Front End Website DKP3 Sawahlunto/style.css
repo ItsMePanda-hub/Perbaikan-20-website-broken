@@ -1,0 +1,430 @@
+/* ============================================================
+   DKP3 Sawahlunto — Bespoke Civic Design System
+   Dinas Ketahanan Pangan, Pertanian dan Perikanan Kota Sawahlunto
+   Warm Agrarian Editorial & Forest Cypress Canvas
+   Strict Zero Emojis — Precision Typography & Whitespaces
+   ============================================================ */
+
+/* 1. Panamera Typography */
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Regular.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Medium.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Bold.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Black.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 2. Color Tokens: Warm Agrarian Palette */
+:root {
+  --canvas-warm: #FAF8F5;
+  --surface-cream: #F3EFEA;
+  --surface-sage: #E3ECE5;
+  --surface-sage-light: #EEF4F0;
+  --brand-forest: #0A2E20;
+  --brand-forest-deep: #061F15;
+  --brand-forest-light: #134B35;
+  --brand-ochre: #B45309;
+  --brand-ochre-light: #F59E0B;
+  --text-primary: #121A16;
+  --text-secondary: #4A5B53;
+  --text-muted: #71847A;
+  --border-subtle: rgba(10, 46, 32, 0.12);
+  --border-strong: rgba(10, 46, 32, 0.24);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  box-shadow: none !important;
+  text-shadow: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--canvas-warm);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--canvas-warm);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-primary {
+  font-family: 'Panamera', sans-serif;
+}
+
+.font-secondary {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 3. Reveal System & Micro-Animations */
+.animate-word {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-space {
+  display: inline;
+}
+
+.js-animate-ready .animate-word {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.js-animate-ready .animate-word.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 4. Photographic Stage */
+.hero-stage {
+  position: relative;
+  width: 100%;
+}
+
+.hero-frame {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 16px 40px -15px rgba(10, 46, 32, 0.18);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* 5. Navigation & Masthead */
+.masthead-pill {
+  padding: 10px 24px;
+  border-radius: 9999px;
+  font-family: 'Panamera', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 1px solid transparent;
+}
+
+.masthead-pill:hover {
+  background-color: var(--surface-sage-light);
+  color: var(--brand-forest);
+}
+
+.masthead-pill.active {
+  background-color: var(--brand-forest);
+  color: #FFFFFF;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 9999px;
+  border: 1.5px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--brand-forest);
+  background-color: rgba(255, 255, 255, 0.8);
+  transition: all 0.2s ease;
+}
+
+.social-icon-btn:hover {
+  background-color: var(--brand-forest);
+  border-color: var(--brand-forest);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+/* 6. Live Telemetry Badges */
+.telemetry-bar {
+  background-color: #FFFFFF;
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  box-shadow: 0 4px 20px -5px rgba(10, 46, 32, 0.06);
+}
+
+.telemetry-item {
+  position: relative;
+}
+
+.telemetry-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background-color: var(--border-subtle);
+}
+
+@media (max-width: 768px) {
+  .telemetry-item::after {
+    display: none !important;
+  }
+}
+
+/* 7. Sector Cards (4 Pilar Unggulan) */
+.sector-card {
+  background-color: #FFFFFF;
+  border: 1.5px solid var(--border-subtle);
+  border-radius: 24px;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  overflow: hidden;
+}
+
+.sector-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: var(--border-subtle);
+  transition: background-color 0.3s ease;
+}
+
+.sector-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--brand-forest);
+  box-shadow: 0 20px 40px -15px rgba(10, 46, 32, 0.14);
+}
+
+.sector-card:hover::before {
+  background-color: var(--brand-ochre);
+}
+
+/* 8. Journal News Cards (Warta Lapangan) */
+.journal-card {
+  background-color: #FFFFFF;
+  border-radius: 24px;
+  border: 1.5px solid var(--border-subtle);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journal-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--brand-forest);
+  box-shadow: 0 18px 36px -12px rgba(10, 46, 32, 0.16);
+}
+
+.journal-card-image-wrap {
+  width: 100%;
+  height: 230px;
+  overflow: hidden;
+  background-color: var(--surface-sage);
+  position: relative;
+}
+
+.journal-card-image-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.journal-card:hover .journal-card-image-wrap img {
+  transform: scale(1.05);
+}
+
+.journal-headline {
+  font-family: 'Panamera', sans-serif;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--brand-forest);
+  transition: color 0.2s ease;
+}
+
+.journal-card:hover .journal-headline {
+  color: var(--brand-ochre);
+}
+
+/* 9. Featured Story Showcase */
+.featured-story-frame {
+  background-color: var(--brand-forest);
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  color: #FFFFFF;
+}
+
+/* 10. Buttons */
+.btn-pill-forest {
+  background-color: var(--brand-forest);
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.btn-pill-forest:hover {
+  background-color: var(--brand-forest-deep);
+  transform: scale(1.03);
+}
+
+.btn-pill-ochre {
+  background-color: var(--brand-ochre);
+  color: #FFFFFF;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.btn-pill-ochre:hover {
+  background-color: #92400e;
+  transform: scale(1.03);
+}
+
+.btn-pill-light {
+  background-color: #FFFFFF;
+  color: var(--brand-forest);
+  border: 1.5px solid var(--border-strong);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  border-radius: 9999px;
+  transition: all 0.2s ease;
+}
+
+.btn-pill-light:hover {
+  background-color: var(--surface-sage-light);
+  border-color: var(--brand-forest);
+  transform: scale(1.03);
+}
+
+/* 11. Category Filter Pills */
+.category-pill {
+  border-radius: 9999px;
+  padding: 8px 20px;
+  font-size: 0.92rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1.5px solid var(--border-subtle);
+  background-color: #FFFFFF;
+  color: var(--text-secondary);
+}
+
+.category-pill:hover {
+  background-color: var(--surface-sage-light);
+  color: var(--brand-forest);
+  border-color: var(--brand-forest);
+}
+
+.category-pill.active {
+  background-color: var(--brand-forest);
+  color: #FFFFFF;
+  border-color: var(--brand-forest);
+  box-shadow: 0 4px 14px rgba(10, 46, 32, 0.25);
+}
+
+/* 12. Search Input */
+.search-input {
+  background-color: #FFFFFF;
+  border: 1.8px solid var(--border-strong);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.search-input:focus {
+  border-color: var(--brand-forest);
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(10, 46, 32, 0.1);
+}
+
+/* 13. Modals */
+.modal-backdrop {
+  background-color: rgba(6, 31, 21, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-box {
+  background-color: var(--brand-forest);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.6);
+  animation: modalEnter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes modalEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* 14. Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--canvas-warm);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(10, 46, 32, 0.25);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-forest);
+}

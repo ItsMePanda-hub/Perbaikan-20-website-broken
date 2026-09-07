@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Resmi Dinas Ketahanan Pangan, Pertanian dan Perikanan (DKP3) Kota Sawahlunto, Sumatera Barat. Layanan pertanian hamparan, alsintan, budidaya perikanan air tawar, puskeswan, dan kedaulatan pangan daerah.">
+  <title>DKP3 Kota Sawahlunto — Dinas Ketahanan Pangan, Pertanian dan Perikanan</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              forest: '#0A2E20',
+              forestDeep: '#061F15',
+              forestLight: '#134B35',
+              ochre: '#B45309',
+              ochreLight: '#F59E0B',
+              canvas: '#FAF8F5',
+              cream: '#F3EFEA',
+              sage: '#E3ECE5',
+              sageLight: '#EEF4F0'
+            }
+          },
+          fontFamily: {
+            primary: ['Panamera', 'sans-serif'],
+            secondary: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#FAF8F5] text-[#121A16] font-secondary antialiased min-h-screen selection:bg-[#0A2E20] selection:text-white">
+
+  <!-- ============================================================
+       1. CIVIC MASTHEAD & INSTITUTIONAL HEADER
+       ============================================================ -->
+  <header id="beranda" class="w-full px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto pt-10 sm:pt-14 pb-8 sm:pb-10">
+
+    <!-- Main Departmental Masthead (Starts Immediately, No Unnecessary Top Sub-bar) -->
+    <div class="flex flex-col xl:flex-row xl:items-end justify-between gap-8 pb-8 border-b border-[#0A2E20]/15">
+      
+      <!-- Left: Monumental Brand Typography -->
+      <div class="space-y-2">
+        <a href="index.html" class="inline-block focus:outline-none group">
+          <h1 class="font-primary font-bold text-5xl sm:text-7xl md:text-8xl lg:text-[84px] xl:text-[96px] text-[#0A2E20] tracking-[-0.03em] leading-none select-none group-hover:text-[#B45309] transition-colors" data-animate-words>
+            DKP3 Sawahlunto
+          </h1>
+        </a>
+        <p class="text-base sm:text-lg text-[#4A5B53] font-secondary font-medium tracking-wide">
+          Dinas Ketahanan Pangan, Pertanian dan Perikanan Kota Sawahlunto
+        </p>
+      </div>
+
+      <!-- Right: Navigation, Actions & Regional Emblem -->
+      <div class="flex flex-wrap items-center justify-between xl:justify-end gap-6 sm:gap-10">
+        
+        <!-- Navigation Pills -->
+        <nav class="flex items-center gap-2 sm:gap-3 flex-wrap" aria-label="Menu Utama">
+          <a href="index.html" class="masthead-pill active" aria-current="page">beranda</a>
+          <a href="#sektor" class="masthead-pill">sektor unggulan</a>
+          <button onclick="openProfilModal()" class="masthead-pill cursor-pointer focus:outline-none">profil</button>
+          <a href="berita.html" class="masthead-pill">warta lapangan</a>
+          <button onclick="openUnduhModal()" class="masthead-pill cursor-pointer focus:outline-none">unduhan</button>
+        </nav>
+
+        <!-- Social Icons & Municipal Seal -->
+        <div class="flex items-center gap-3 pl-3 sm:pl-5 border-l border-[#0A2E20]/15">
+          <div class="flex items-center gap-2">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook DKP3 Sawahlunto">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram DKP3 Sawahlunto">
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="mailto:dkp3@sawahluntokota.go.id" class="social-icon-btn" aria-label="Email Resmi DKP3 Sawahlunto">
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+
+          <img src="assets/logo-sawahlunto.png" alt="Lambang Daerah Kota Sawahlunto" class="h-12 sm:h-14 w-auto object-contain ml-1 select-none" loading="eager">
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ============================================================
+         2. HERO AGRARIAN SHOWCASE
+         ============================================================ -->
+    <div class="hero-stage mt-2">
+      <div class="hero-frame" id="heroFrame">
+        <img src="assets/hero-dkp3.jpg" alt="Lanskap Pertanian Sawah Baruah Talawi Hilie Kota Sawahlunto" class="w-full h-auto max-h-[640px] object-cover object-center">
+      </div>
+    </div>
+
+    <!-- Live Civic Telemetry Bar -->
+    <div class="telemetry-bar mt-6 p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      
+      <div class="telemetry-item pr-4">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#B45309] uppercase tracking-wider mb-1">
+          <span class="w-2 h-2 rounded-full bg-[#B45309]"></span>
+          Cadangan Beras Daerah
+        </div>
+        <div class="font-primary font-bold text-2xl sm:text-3xl text-[#0A2E20]">45,8 Ton</div>
+        <div class="text-xs text-[#4A5B53] mt-0.5">Status Aman &bull; Gudang Logistik</div>
+      </div>
+
+      <div class="telemetry-item pr-4">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#0A2E20] uppercase tracking-wider mb-1">
+          <span class="w-2 h-2 rounded-full bg-[#0A2E20]"></span>
+          Sentra Sawah Baruah
+        </div>
+        <div class="font-primary font-bold text-2xl sm:text-3xl text-[#0A2E20]">25+ Hektar</div>
+        <div class="text-xs text-[#4A5B53] mt-0.5">Padi & Hortikultura Produktif</div>
+      </div>
+
+      <div class="telemetry-item pr-4">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#0A2E20] uppercase tracking-wider mb-1">
+          <span class="w-2 h-2 rounded-full bg-[#0A2E20]"></span>
+          Restocking Nila Irigasi
+        </div>
+        <div class="font-primary font-bold text-2xl sm:text-3xl text-[#0A2E20]">12 Titik</div>
+        <div class="text-xs text-[#4A5B53] mt-0.5">Pengawasan POKMASWAS</div>
+      </div>
+
+      <div class="telemetry-item">
+        <div class="flex items-center gap-2 text-xs font-semibold text-[#0A2E20] uppercase tracking-wider mb-1">
+          <span class="w-2 h-2 rounded-full bg-[#0A2E20]"></span>
+          Layanan Puskeswan Aktif
+        </div>
+        <div class="font-primary font-bold text-2xl sm:text-3xl text-[#0A2E20]">4 Kecamatan</div>
+        <div class="text-xs text-[#4A5B53] mt-0.5">Vaksinasi & Kawin Suntik Gratis</div>
+      </div>
+
+    </div>
+
+  </header>
+
+  <!-- ============================================================
+       3. 4 PILAR SEKTOR UNGGULAN DKP3
+       ============================================================ -->
+  <section id="sektor" class="w-full pt-16 sm:pt-24 pb-12 px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto">
+    
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 sm:mb-16">
+      <div class="max-w-3xl space-y-2">
+        <span class="inline-block px-3.5 py-1 rounded-full bg-[#E3ECE5] text-[#0A2E20] text-xs font-bold uppercase tracking-wider">
+          Mandat & Program Prioritas
+        </span>
+        <h2 class="font-primary font-bold text-4xl sm:text-5xl md:text-6xl text-[#0A2E20] tracking-tight leading-none" data-animate-words>
+          4 Pilar Sektor Unggulan
+        </h2>
+        <p class="text-sm sm:text-base text-[#4A5B53] font-secondary leading-relaxed pt-1">
+          Dedikasi pelayanan terpadu bagi kelompok tani hamparan, pembudidaya perikanan air tawar, peternak rakyat, dan kedaulatan pangan keluarga di Kota Sawahlunto.
+        </p>
+      </div>
+
+      <div>
+        <button onclick="openProfilModal()" class="btn-pill-light px-6 py-3 text-sm font-medium inline-flex items-center gap-2 focus:outline-none cursor-pointer border border-[#0A2E20]/15">
+          <span>Struktur & Tupoksi Dinas</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- 4 Sector Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      
+      <!-- Pilar 1 -->
+      <article class="sector-card p-7 sm:p-8 min-h-[380px]">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-bold text-[#B45309] uppercase tracking-widest font-primary">Sektor 01</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#EEF4F0] text-[#0A2E20] text-[11px] font-semibold">Alsintan</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl text-[#0A2E20] leading-snug mb-3">
+            Mekanisasi Alsintan & Tanaman Pangan
+          </h3>
+          <p class="text-sm text-[#4A5B53] leading-relaxed">
+            Pengembangan kawasan terasering produktif Sawah Baruah Talawi, penyaluran bantuan traktor roda dua/empat, pompa air sentrifugal, dan pendampingan kalender tanam terpadu.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0A2E20]/10 mt-6">
+          <span class="text-xs font-semibold text-[#0A2E20] block">Sentra Produksi:</span>
+          <span class="text-xs text-[#71847A]">Hamparan Sawah Baruah Talawi Hilie</span>
+        </div>
+      </article>
+
+      <!-- Pilar 2 -->
+      <article class="sector-card p-7 sm:p-8 min-h-[380px]">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-bold text-[#B45309] uppercase tracking-widest font-primary">Sektor 02</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#EEF4F0] text-[#0A2E20] text-[11px] font-semibold">Perikanan</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl text-[#0A2E20] leading-snug mb-3">
+            Budidaya Irigasi & POKMASWAS
+          </h3>
+          <p class="text-sm text-[#4A5B53] leading-relaxed">
+            Optimalisasi saluran irigasi beton bersih untuk budidaya benih ikan nila dan mas unggul, pembinaan Kelompok Pengawas Masyarakat, dan pengawasan mutu perairan umum.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0A2E20]/10 mt-6">
+          <span class="text-xs font-semibold text-[#0A2E20] block">Fokus Wilayah:</span>
+          <span class="text-xs text-[#71847A]">Saluran Irigasi Teknis 4 Kecamatan</span>
+        </div>
+      </article>
+
+      <!-- Pilar 3 -->
+      <article class="sector-card p-7 sm:p-8 min-h-[380px]">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-bold text-[#B45309] uppercase tracking-widest font-primary">Sektor 03</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#EEF4F0] text-[#0A2E20] text-[11px] font-semibold">Kedaulatan Pangan</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl text-[#0A2E20] leading-snug mb-3">
+            Cadangan Beras & Gerakan P2B
+          </h3>
+          <p class="text-sm text-[#4A5B53] leading-relaxed">
+            Pengelolaan Cadangan Pangan Pemerintah Daerah (CPPD), stabilisasi harga pasar harian, serta pembagian ribuan bibit polybag sayuran pekarangan keluarga penekan stunting.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0A2E20]/10 mt-6">
+          <span class="text-xs font-semibold text-[#0A2E20] block">Program Unggulan:</span>
+          <span class="text-xs text-[#71847A]">Pekarangan Pangan Bergizi (P2B)</span>
+        </div>
+      </article>
+
+      <!-- Pilar 4 -->
+      <article class="sector-card p-7 sm:p-8 min-h-[380px]">
+        <div>
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs font-bold text-[#B45309] uppercase tracking-widest font-primary">Sektor 04</span>
+            <span class="px-2.5 py-1 rounded-md bg-[#EEF4F0] text-[#0A2E20] text-[11px] font-semibold">Peternakan</span>
+          </div>
+          <h3 class="font-primary font-bold text-2xl text-[#0A2E20] leading-snug mb-3">
+            Kesehatan Hewan & Inseminasi Buatan
+          </h3>
+          <p class="text-sm text-[#4A5B53] leading-relaxed">
+            Layanan medik veteriner gratis di Pusat Kesehatan Hewan (Puskeswan), program vaksinasi booster PMK jemput bola ke kandang peternak, dan kawin suntik sapi Simmental unggul.
+          </p>
+        </div>
+        <div class="pt-6 border-t border-[#0A2E20]/10 mt-6">
+          <span class="text-xs font-semibold text-[#0A2E20] block">Pusat Layanan:</span>
+          <span class="text-xs text-[#71847A]">Puskeswan & Klinik Hewan Terpadu</span>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. WARTA LAPANGAN & PUBLIKASI RESMI (JOURNALISTIC NEWS)
+       Direct link to berita-detail.html?id=... (ZERO POPUPS)
+       ============================================================ -->
+  <section id="berita" class="w-full pt-16 sm:pt-20 pb-16 sm:pb-24 px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto">
+    
+    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-14">
+      <div>
+        <span class="inline-block px-3.5 py-1 rounded-full bg-[#E3ECE5] text-[#0A2E20] text-xs font-bold uppercase tracking-wider mb-2">
+          Kabar Dinas & Dokumentasi Kegiatan
+        </span>
+        <h2 class="font-primary font-bold text-4xl sm:text-5xl md:text-6xl text-[#0A2E20] tracking-tight leading-none" data-animate-words>
+          Warta Lapangan
+        </h2>
+      </div>
+      <div>
+        <a href="berita.html" class="btn-pill-forest px-7 py-3 text-sm sm:text-base font-medium inline-flex items-center gap-2 group border border-white/20">
+          <span>Semua Berita & Publikasi</span>
+          <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Asymmetric Editorial Showcase: 1 Hero Story + 3 Complementary Stories -->
+    <div class="space-y-8">
+      
+      <!-- Lead Featured Story -->
+      <article class="featured-story-frame p-6 sm:p-10 lg:p-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-4">
+            <div class="flex items-center gap-3">
+              <span class="inline-block px-3.5 py-1 rounded-full bg-[#B45309] text-white text-xs font-semibold uppercase tracking-wider">
+                Sorotan Lapangan
+              </span>
+              <span class="text-xs text-emerald-200">
+                Jumat, 04 September 2026 &bull; 4 menit baca
+              </span>
+            </div>
+
+            <h3 class="font-primary font-bold text-2xl sm:text-4xl lg:text-[42px] leading-tight text-white">
+              <a href="berita-detail.html?id=1" class="hover:text-emerald-200 transition">
+                Agrowisata Sawah Baruah Talawi Hilie: Kolaborasi Pemdes, DKP3, dan BPP Hadirkan Pertanian Produktif Terpadu
+              </a>
+            </h3>
+
+            <p class="text-sm sm:text-base text-gray-200 font-secondary leading-relaxed line-clamp-3">
+              Kawasan persawahan hamparan Sawah Baruah di Desa Talawi Hilie resmi bertransformasi menjadi sentra percontohan agrowisata edukatif berbasis ketahanan pangan dan budidaya tanaman hortikultura modern.
+            </p>
+
+            <div class="pt-2 flex items-center justify-between gap-4">
+              <span class="text-xs text-emerald-300 font-medium">Oleh: Humas DKP3 Sawahlunto</span>
+              <a href="berita-detail.html?id=1" class="btn-pill-ochre px-7 py-2.5 text-sm font-medium inline-block">
+                Baca Selengkapnya
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="rounded-2xl overflow-hidden border border-white/20 aspect-video lg:aspect-square">
+              <img src="assets/hero-dkp3.jpg" alt="Hamparan Sawah Baruah" class="w-full h-full object-cover">
+            </div>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- 3 Complementary Journal Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        
+        <!-- Story 2 -->
+        <article class="journal-card">
+          <div class="journal-card-image-wrap">
+            <img src="assets/panen-pangan.jpg" alt="Panen Cabai dan Jagung">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#0A2E20]/90 text-white text-[11px] font-semibold uppercase tracking-wider backdrop-blur-sm">
+              Pertanian & Alsintan
+            </span>
+          </div>
+          <div class="p-6 sm:p-7 flex flex-col justify-between flex-1">
+            <div>
+              <span class="text-xs text-[#71847A] block mb-2">Selasa, 01 September 2026</span>
+              <h4 class="journal-headline text-lg sm:text-xl mb-3">
+                <a href="berita-detail.html?id=2">
+                  Panen Serentak Cabai dan Jagung: DKP3 Serahkan Bantuan Alsintan Modern
+                </a>
+              </h4>
+              <p class="text-xs sm:text-sm text-[#4A5B53] line-clamp-3 leading-relaxed">
+                Momentum panen raya komoditas hortikultura di hamparan Sawah Baruah dirangkai dengan penyerahan bantuan 6 unit traktor dan pompa air.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#0A2E20]/10 mt-6 flex items-center justify-between">
+              <span class="text-xs text-[#71847A]">3 menit baca</span>
+              <a href="berita-detail.html?id=2" class="btn-pill-forest px-5 py-2 text-xs font-medium inline-block">
+                Selengkapnya
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 3 -->
+        <article class="journal-card">
+          <div class="journal-card-image-wrap">
+            <img src="assets/perikanan-irigasi.jpg" alt="Penebaran Benih Ikan Nila">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#0A2E20]/90 text-white text-[11px] font-semibold uppercase tracking-wider backdrop-blur-sm">
+              Perikanan Air Tawar
+            </span>
+          </div>
+          <div class="p-6 sm:p-7 flex flex-col justify-between flex-1">
+            <div>
+              <span class="text-xs text-[#71847A] block mb-2">Jumat, 28 Agustus 2026</span>
+              <h4 class="journal-headline text-lg sm:text-xl mb-3">
+                <a href="berita-detail.html?id=3">
+                  Perkuat Ketahanan Pangan, DKP3 Tebar 750 Benih Ikan Nila di Saluran Irigasi
+                </a>
+              </h4>
+              <p class="text-xs sm:text-sm text-[#4A5B53] line-clamp-3 leading-relaxed">
+                Pemanfaatan saluran irigasi teknis untuk budidaya ikan nila dan pembinaan Kelompok Pengawas Masyarakat (POKMASWAS) Talawi.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#0A2E20]/10 mt-6 flex items-center justify-between">
+              <span class="text-xs text-[#71847A]">3 menit baca</span>
+              <a href="berita-detail.html?id=3" class="btn-pill-forest px-5 py-2 text-xs font-medium inline-block">
+                Selengkapnya
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Story 4 -->
+        <article class="journal-card">
+          <div class="journal-card-image-wrap">
+            <img src="assets/hero-dkp3.jpg" alt="Penghargaan Penyuluh Teladan">
+            <span class="absolute top-4 left-4 px-3 py-1 rounded-full bg-[#0A2E20]/90 text-white text-[11px] font-semibold uppercase tracking-wider backdrop-blur-sm">
+              Penyuluhan & SDM
+            </span>
+          </div>
+          <div class="p-6 sm:p-7 flex flex-col justify-between flex-1">
+            <div>
+              <span class="text-xs text-[#71847A] block mb-2">Senin, 24 Agustus 2026</span>
+              <h4 class="journal-headline text-lg sm:text-xl mb-3">
+                <a href="berita-detail.html?id=4">
+                  Apresiasi Garda Terdepan: DKP3 Serahkan Penghargaan Penyuluh Pertanian Teladan
+                </a>
+              </h4>
+              <p class="text-xs sm:text-sm text-[#4A5B53] line-clamp-3 leading-relaxed">
+                Apresiasi dedikasi tahunan bagi para penyuluh PNS, THL-TBPP, dan Penyuluh Swadaya yang membina petani di pelosok Sawahlunto.
+              </p>
+            </div>
+            <div class="pt-6 border-t border-[#0A2E20]/10 mt-6 flex items-center justify-between">
+              <span class="text-xs text-[#71847A]">3 menit baca</span>
+              <a href="berita-detail.html?id=4" class="btn-pill-forest px-5 py-2 text-xs font-medium inline-block">
+                Selengkapnya
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. ARCHITECTURAL CIVIC FOOTER (BESPOKE DKP3 DESIGN)
+       ============================================================ -->
+  <footer class="w-full bg-[#0A2E20] text-white pt-20 sm:pt-28 pb-10 px-6 sm:px-10 lg:px-14 xl:px-16 mt-20 sm:mt-28">
+    <div class="max-w-[1920px] mx-auto space-y-16">
+      
+      <!-- 3-Column Civic Directory -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 pb-12 border-b border-white/10 text-sm font-secondary">
+        
+        <!-- Col 1: Institutional -->
+        <div class="space-y-4 lg:col-span-1">
+          <div class="flex items-center gap-3">
+            <img src="assets/logo-sawahlunto.png" alt="Lambang Daerah Kota Sawahlunto" class="h-12 w-auto object-contain">
+            <div>
+              <h4 class="font-primary font-bold text-base text-white">Pemerintah Kota Sawahlunto</h4>
+              <span class="text-xs text-emerald-300">Sumatera Barat</span>
+            </div>
+          </div>
+          <p class="text-xs text-gray-300 leading-relaxed">
+            Dinas Ketahanan Pangan, Pertanian dan Perikanan berkomitmen mewujudkan kemandirian pangan, modernisasi pertanian hamparan, dan budidaya perikanan air tawar ramah lingkungan.
+          </p>
+        </div>
+
+        <!-- Col 2: Alamat & Kontak -->
+        <div class="space-y-3">
+          <h4 class="font-primary font-bold text-sm uppercase tracking-wider text-[#F59E0B]">Kantor Dinas</h4>
+          <p class="text-gray-300 text-xs sm:text-sm leading-relaxed">
+            Jl. Khatib Sulaiman, Santur,<br>
+            Kec. Barangin, Kota Sawahlunto,<br>
+            Sumatera Barat 25422.
+          </p>
+          <div class="space-y-1 pt-1 text-xs">
+            <p><span class="text-gray-400">Email:</span> <a href="mailto:dkp3@sawahluntokota.go.id" class="text-emerald-300 hover:underline">dkp3@sawahluntokota.go.id</a></p>
+            <p><span class="text-gray-400">Telepon:</span> (0754) 61110</p>
+          </div>
+        </div>
+
+        <!-- Col 3: Layanan & Jam Operasional -->
+        <div class="space-y-3">
+          <h4 class="font-primary font-bold text-sm uppercase tracking-wider text-[#F59E0B]">Layanan & Operasional</h4>
+          <p class="text-gray-300 text-xs leading-relaxed">
+            Senin - Kamis: 07.30 - 16.00 WIB<br>
+            Jumat: 07.30 - 16.30 WIB<br>
+            Sabtu, Minggu & Hari Libur: Tutup
+          </p>
+          <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-gray-300">
+            <strong class="text-white block mb-0.5">Puskeswan & Klinik Hewan:</strong>
+            Pelayanan pemeriksaan kesehatan hewan dan vaksinasi ternak di 4 kecamatan.
+          </div>
+        </div>
+
+        <!-- Col 4: Sentra Komoditas Pangan -->
+        <div class="space-y-3">
+          <h4 class="font-primary font-bold text-sm uppercase tracking-wider text-[#F59E0B]">Sentra Potensi Daerah</h4>
+          <ul class="space-y-1.5 text-xs text-gray-300">
+            <li>&bull; Hamparan Padi Sawah Baruah Talawi</li>
+            <li>&bull; Budidaya Ikan Nila Irigasi Teknis</li>
+            <li>&bull; Perkebunan Kopi Rakyat Bukit Gadang</li>
+            <li>&bull; Kawasan Sayuran & Cabai Silungkang</li>
+            <li>&bull; Sentra Peternakan Ruminansia Lembah Segar</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Monumental Brand Typography -->
+      <div class="w-full overflow-hidden select-none">
+        <h3 class="font-primary font-bold text-white text-4xl sm:text-7xl md:text-8xl lg:text-[7vw] tracking-[-0.03em] leading-[0.9] whitespace-nowrap">
+          DKP3 Sawahlunto
+        </h3>
+      </div>
+
+      <!-- Copyright & Heritage Line -->
+      <div class="pt-4 border-t border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-gray-400 font-secondary">
+        <p>© 2026 Pemerintah Kota Sawahlunto &bull; Dinas Ketahanan Pangan, Pertanian dan Perikanan</p>
+        <p>Kawasan Penyangga Pangan Berkelanjutan &bull; Warisan Budaya Dunia Ombilin</p>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       6. MODALS (PROFIL & UNDUH ONLY, ZERO EMOJIS)
+       ============================================================ -->
+
+  <!-- Profil Modal -->
+  <div id="profilModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 sm:p-6 md:p-10" role="dialog" aria-modal="true">
+    <div id="profilModalBackdrop" class="fixed inset-0 modal-backdrop"></div>
+    <div class="relative modal-box text-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto z-10 p-6 sm:p-10">
+      <button id="closeProfilModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer" aria-label="Tutup Profil">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <span class="inline-block px-3 py-1 rounded-full bg-[#B45309] text-white text-xs font-medium uppercase tracking-wider mb-2">Profil Kelembagaan</span>
+      <h3 class="font-primary font-bold text-2xl sm:text-4xl text-white mb-6">
+        Dinas Ketahanan Pangan, Pertanian dan Perikanan Kota Sawahlunto
+      </h3>
+
+      <div class="space-y-6 font-secondary text-gray-200 text-sm sm:text-base leading-relaxed">
+        <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+          <h4 class="font-primary font-bold text-xl text-[#F59E0B] mb-2">Visi Pembangunan Pangan Daerah</h4>
+          <p class="italic text-white/90">"Terwujudnya Kedaulatan Pangan Daerah yang Tangguh, Mandiri, dan Berkelanjutan Berbasis Keunggulan Komoditas Pertanian Hamparan, Perikanan Air Tawar, dan Peternakan Rakyat di Kota Sawahlunto."</p>
+        </div>
+
+        <div>
+          <h4 class="font-primary font-bold text-xl text-[#F59E0B] mb-3">Misi Strategis</h4>
+          <ul class="list-disc pl-5 space-y-2 text-white/85">
+            <li>Memperkuat cadangan pangan daerah dan menjaga stabilitas pasokan serta harga komoditas strategis.</li>
+            <li>Meningkatkan produktivitas tanaman pangan dan hortikultura melalui mekanisasi alsintan modern serta penguatan kelembagaan Gapoktan.</li>
+            <li>Mengoptimalkan potensi budidaya perikanan air tawar melalui pemanfaatan saluran irigasi teknis bersama POKMASWAS.</li>
+            <li>Meningkatkan derajat kesehatan hewan ternak dan mutu produk hewani melalui pelayanan aktif Puskeswan jemput bola.</li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-white/10">
+          <h4 class="font-primary font-bold text-xl text-[#F59E0B] mb-3">Struktur Bidang Teknis</h4>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Ketahanan & Distribusi Pangan</div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Tanaman Pangan, Hortikultura & Perkebunan</div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Perikanan Air Tawar & Konservasi Perairan</div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Peternakan & Kesehatan Hewan (Puskeswan)</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+          <span>Alamat: Jl. Khatib Sulaiman, Santur, Sawahlunto</span>
+          <span>Email: dkp3@sawahluntokota.go.id</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unduh Modal -->
+  <div id="unduhModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
+    <div id="unduhModalBackdrop" class="fixed inset-0 modal-backdrop"></div>
+    <div class="relative modal-box text-white rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto z-10 p-6 sm:p-8">
+      <button id="closeUnduhModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer" aria-label="Tutup Unduh">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <span class="inline-block px-3 py-1 rounded-full bg-[#B45309] text-white text-xs font-medium uppercase tracking-wider mb-2">Dokumen Publik Resmi</span>
+      <h3 class="font-primary font-bold text-2xl text-white mb-1">Unduhan Dokumen DKP3</h3>
+      <p class="text-xs text-gray-300 font-secondary mb-6">Pilih dokumen resmi DKP3 Kota Sawahlunto untuk diunduh</p>
+      <div id="unduhListContainer" class="space-y-3 font-secondary"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="news-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
