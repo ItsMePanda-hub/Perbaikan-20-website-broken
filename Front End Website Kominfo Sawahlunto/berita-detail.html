@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail Berita Resmi Pemerintah Kota Sawahlunto, Dinas Komunikasi dan Informatika.">
+  <title id="metaPageTitle">Berita — Diskominfo Sawahlunto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              sky: '#bce5fb',
+              skyDeep: '#a8dbf8',
+              navy: '#181f4d',
+              navyLight: '#242c64'
+            }
+          },
+          fontFamily: {
+            primary: ['Panamera', 'sans-serif'],
+            secondary: ['Poppins', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#bce5fb] text-black font-secondary antialiased min-h-screen selection:bg-[#181f4d] selection:text-white">
+
+  <!-- ===== 1. HEADER SECTION (IDENTICAL ACROSS SITE) ===== -->
+  <header class="w-full px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto pt-8 sm:pt-12 pb-6">
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-6 sm:pb-8">
+
+      <!-- Site Title -->
+      <div class="pb-1">
+        <a href="index.html" class="inline-block focus:outline-none focus:ring-2 focus:ring-black rounded-lg">
+          <h1 class="font-primary font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[88px] tracking-[-0.03em] text-black leading-none select-none">
+            Diskominfo Sawahlunto
+          </h1>
+        </a>
+      </div>
+
+      <!-- Navigation + Socials & Logos -->
+      <div class="flex items-end justify-between lg:justify-end gap-8 sm:gap-14 xl:gap-24">
+
+        <!-- Navigation Menu -->
+        <nav class="flex flex-col space-y-1.5 font-primary text-2xl sm:text-3xl lg:text-[32px] xl:text-[36px] text-black font-bold select-none leading-none" aria-label="Menu Utama">
+          <a href="index.html" class="nav-link text-black hover:text-gray-700 block py-0.5">beranda</a>
+          <button onclick="openProfilModal()" class="nav-link text-left text-black hover:text-gray-700 cursor-pointer block py-0.5 focus:outline-none">profil</button>
+          <a href="berita.html" class="nav-link active text-black block py-0.5" aria-current="page">berita</a>
+          <button onclick="openUnduhModal()" class="nav-link text-left text-black hover:text-gray-700 cursor-pointer block py-0.5 focus:outline-none">unduh</button>
+        </nav>
+
+        <!-- Social Icons & Logos -->
+        <div class="flex flex-col items-center gap-4">
+          <!-- Social Outline Icons -->
+          <div class="flex items-center gap-2.5 sm:gap-3">
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Facebook Diskominfo Sawahlunto">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram Diskominfo Sawahlunto">
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+            </a>
+            <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="YouTube Diskominfo Sawahlunto">
+              <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+            </a>
+            <a href="mailto:kominfo@sawahluntokota.go.id" class="social-icon-btn" aria-label="Email Resmi Diskominfo Sawahlunto">
+              <svg class="w-4 h-4 fill-none stroke-current" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+            </a>
+          </div>
+
+          <!-- Official Logos -->
+          <div class="flex items-center gap-3">
+            <img src="assets/logo-sawahlunto.png" alt="Lambang Daerah Kota Sawahlunto" class="h-16 sm:h-20 lg:h-24 w-auto object-contain select-none" loading="eager">
+            <img src="assets/logo-kominfo.png" alt="Logo Kementerian Kominfo" class="h-16 sm:h-20 lg:h-24 w-auto object-contain select-none" loading="eager">
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Breadcrumb & Back Navigation -->
+    <div class="pt-4 border-t border-black/15 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+      <nav class="text-xs sm:text-sm text-black/70 flex items-center gap-2 flex-wrap" aria-label="Breadcrumb">
+        <a href="index.html" class="hover:text-black transition">Beranda</a>
+        <span>/</span>
+        <a href="berita.html" class="hover:text-black transition">Portal Berita</a>
+        <span>/</span>
+        <span id="breadcrumbCategory" class="text-black/80 font-medium">Kategori</span>
+        <span>/</span>
+        <span id="breadcrumbTitle" class="text-black font-semibold truncate max-w-[260px] sm:max-w-md">Detail Berita</span>
+      </nav>
+      <a href="berita.html" class="inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-black hover:text-gray-700 transition">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+        <span>Kembali ke Semua Berita</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== 2. WHOLE FULL-PAGE NEWS ARTICLE ===== -->
+  <main class="w-full px-6 sm:px-10 lg:px-14 xl:px-16 max-w-[1920px] mx-auto pt-6 pb-20">
+
+    <!-- Article Header Area (Full Page Width) -->
+    <div class="max-w-5xl mx-auto mb-10 sm:mb-14">
+      
+      <!-- Category & Reading Time -->
+      <div class="flex items-center gap-3 mb-5">
+        <span id="articleCategoryBadge" class="inline-block px-4 py-1.5 rounded-full bg-[#181f4d] text-white text-xs sm:text-sm font-semibold tracking-wider uppercase">
+          Kategori Berita
+        </span>
+        <span id="articleReadTime" class="text-xs sm:text-sm text-black/70 font-secondary font-medium">
+          4 menit baca
+        </span>
+      </div>
+
+      <!-- Giant Editorial Headline in Panamera Bold -->
+      <h1 id="articleTitle" class="font-primary font-bold text-4xl sm:text-5xl md:text-6xl lg:text-[68px] xl:text-[76px] text-black tracking-[-0.02em] leading-[1.08] mb-8">
+        Judul Berita Diskominfo Sawahlunto
+      </h1>
+
+      <!-- Byline & Action Bar -->
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 py-5 border-y border-black/15 text-xs sm:text-sm text-black/75 font-secondary">
+        <div class="space-y-1">
+          <div class="font-medium text-black">
+            Ditulis oleh <span id="articleAuthor" class="font-bold">Tim Liputan Diskominfo Sawahlunto</span>
+          </div>
+          <div class="text-black/60">
+            Dipublikasikan pada <span id="articleDate" class="text-black font-medium">25 Agustus 2026</span>
+          </div>
+        </div>
+
+        <!-- Social Share Bar -->
+        <div class="flex items-center gap-2 pt-2 sm:pt-0">
+          <span class="text-xs text-black/60 mr-1">Bagikan:</span>
+          <button onclick="shareArticleDetail('wa')" class="px-4 py-2 rounded-full bg-emerald-600 hover:bg-emerald-700 text-xs font-semibold text-white transition shadow-sm cursor-pointer">
+            WhatsApp
+          </button>
+          <button onclick="shareArticleDetail('fb')" class="px-4 py-2 rounded-full bg-blue-600 hover:bg-blue-700 text-xs font-semibold text-white transition shadow-sm cursor-pointer">
+            Facebook
+          </button>
+          <button onclick="copyArticleDetailLink()" id="btnCopyDetailLink" class="px-4 py-2 rounded-full bg-[#181f4d] hover:bg-black text-xs font-semibold text-white transition shadow-sm cursor-pointer">
+            Salin Tautan
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Featured News Image (Wide hero banner matching the landing aesthetic) -->
+    <div class="max-w-6xl mx-auto mb-12 sm:mb-16">
+      <div class="rounded-[28px] overflow-hidden shadow-lg bg-black/10">
+        <img id="articleImage" src="assets/hero.jpg" alt="Foto Berita Diskominfo Sawahlunto" class="w-full h-auto max-h-[640px] object-cover object-center">
+      </div>
+      <p id="articleImageCaption" class="mt-3 text-xs sm:text-sm text-black/60 italic font-secondary text-center px-4">
+        Dokumentasi resmi Pemerintah Kota Sawahlunto.
+      </p>
+    </div>
+
+    <!-- Editorial Article Content Column -->
+    <article class="max-w-4xl mx-auto font-secondary text-black/90 text-lg sm:text-xl leading-[1.85] space-y-6 mb-16">
+      <div id="articleBody">
+        <!-- Injected dynamically from newsArticles -->
+      </div>
+
+      <!-- Tags list -->
+      <div class="pt-8 border-t border-black/15">
+        <span class="text-xs text-black/60 uppercase tracking-wider font-semibold block mb-3">Topik Terkait:</span>
+        <div id="articleTags" class="flex flex-wrap items-center gap-2">
+          <!-- Injected dynamically -->
+        </div>
+      </div>
+
+      <!-- Bottom Share & Back Bar -->
+      <div class="pt-10 border-t border-black/15 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <div>
+          <span class="text-xs text-black/60 block mb-1">Sumber Berita Resmi</span>
+          <p class="text-sm font-semibold text-black">Dinas Komunikasi dan Informatika Kota Sawahlunto</p>
+        </div>
+        <a href="berita.html" class="inline-flex items-center gap-2 px-7 py-3 rounded-full bg-[#181f4d] text-white hover:bg-black text-sm font-medium transition shadow-md self-start sm:self-auto">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+          <span>Kembali ke Portal Berita</span>
+        </a>
+      </div>
+    </article>
+
+    <!-- ===== 3. BERITA TERKAIT LAINNYA (THE NAVY CARDS SECTION) ===== -->
+    <section class="max-w-[1920px] mx-auto pt-16 sm:pt-24 border-t border-black/15">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-10 sm:mb-16">
+        <div>
+          <h2 class="font-primary font-bold text-4xl sm:text-5xl md:text-6xl text-black tracking-tight leading-none select-none">
+            Berita Terkini Lainnya
+          </h2>
+        </div>
+        <div>
+          <a href="berita.html" class="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#181f4d] text-white hover:bg-black font-secondary text-sm sm:text-base font-medium transition-all group shadow-md">
+            <span>Lihat Semua Berita</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 Navy Cards Grid (Matching Body.jpg exactly) -->
+      <div id="relatedNewsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 xl:gap-10">
+        <!-- Rendered dynamically -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== 4. FOOTER SECTION (IDENTICAL ACROSS SITE) ===== -->
+  <footer class="w-full bg-[#181f4d] text-white pt-20 sm:pt-32 pb-8 sm:pb-12 px-6 sm:px-10 lg:px-14 xl:px-16 mt-20 sm:mt-32">
+    <div class="max-w-[1920px] mx-auto flex flex-col justify-between min-h-[460px]">
+      
+      <!-- Top Info: Address & Contact Email -->
+      <div class="flex flex-col sm:flex-row justify-end items-start gap-10 sm:gap-24 lg:gap-36 mb-16 sm:mb-24">
+        <div class="space-y-1.5 text-sm sm:text-base font-secondary font-normal">
+          <span class="text-gray-400 block text-xs sm:text-sm font-normal">Kunjungi Kantor Kami</span>
+          <p class="text-white leading-relaxed">
+            Pasar Sawahlunto, Blok A Lantai II ,<br>
+            Kec. Lembah Segar, Kota Sawahlunto,<br>
+            Sumatera Barat.
+          </p>
+        </div>
+        <div class="space-y-1.5 text-sm sm:text-base font-secondary font-normal">
+          <span class="text-gray-400 block text-xs sm:text-sm font-normal">Kontak Email Kami</span>
+          <a href="mailto:kominfo@sawahluntokota.go.id" class="text-white hover:text-sky-300 transition-colors block">
+            kominfo@sawahluntokota.go.id
+          </a>
+        </div>
+      </div>
+
+      <!-- Giant Brand Typography & Copyright -->
+      <div class="space-y-4 sm:space-y-6">
+        <div class="w-full overflow-hidden select-none">
+          <h2 class="font-primary font-bold text-white text-5xl sm:text-8xl md:text-9xl lg:text-[7.6vw] xl:text-[8.1vw] tracking-[-0.03em] leading-[0.9] whitespace-nowrap">
+            Diskominfo Sawahlunto
+          </h2>
+        </div>
+        <div class="text-gray-300 text-xs sm:text-sm font-secondary font-normal flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pt-2 border-t border-white/10">
+          <p>© 2026. All Rights Reserved</p>
+          <p class="text-gray-400 text-xs">Pemerintah Kota Sawahlunto, Sumatera Barat</p>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ===== MODALS (PROFIL & UNDUH ONLY, NO EMOJIS) ===== -->
+
+  <!-- Profil Modal -->
+  <div id="profilModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 sm:p-6 md:p-10" role="dialog" aria-modal="true">
+    <div id="profilModalBackdrop" class="fixed inset-0 modal-backdrop"></div>
+    <div class="relative modal-box text-white rounded-3xl max-w-3xl w-full max-h-[90vh] overflow-y-auto z-10 p-6 sm:p-10">
+      <button id="closeProfilModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer" aria-label="Tutup Profil">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <span class="inline-block px-3 py-1 rounded-full bg-sky-400/20 text-sky-200 text-xs font-medium uppercase tracking-wider mb-2">Profil Lembaga</span>
+      <h3 class="font-primary font-bold text-3xl sm:text-4xl text-white mb-6">
+        Dinas Komunikasi dan Informatika Kota Sawahlunto
+      </h3>
+
+      <div class="space-y-6 font-secondary text-gray-200 text-sm sm:text-base leading-relaxed">
+        <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+          <h4 class="font-primary font-bold text-xl text-sky-300 mb-2">Visi</h4>
+          <p class="italic text-white/90">"Terwujudnya Sawahlunto sebagai Kota Wisata Tambang yang Berbudaya, Maju, Mandiri, dan Sejahtera Berbasis Tata Kelola Digital yang Terintegrasi."</p>
+        </div>
+
+        <div>
+          <h4 class="font-primary font-bold text-xl text-sky-300 mb-3">Misi Strategis</h4>
+          <ul class="list-disc pl-5 space-y-2 text-white/85">
+            <li>Mewujudkan keterbukaan informasi publik dan tata kelola pemerintahan yang bersih, transparan, dan akuntabel melalui implementasi SPBE.</li>
+            <li>Mengembangkan infrastruktur telekomunikasi digital yang andal hingga ke pelosok nagari dan desa.</li>
+            <li>Meningkatkan kapasitas literasi digital aparatur sipil negara dan masyarakat Kota Sawahlunto.</li>
+            <li>Melestarikan dan mempromosikan warisan dunia UNESCO Ombilin Coal Mining Heritage of Sawahlunto melalui teknologi informasi modern.</li>
+          </ul>
+        </div>
+
+        <div class="pt-4 border-t border-white/10">
+          <h4 class="font-primary font-bold text-xl text-sky-300 mb-3">Tugas Pokok & Fungsi (Tupoksi)</h4>
+          <p class="text-white/85 mb-3">Diskominfo Kota Sawahlunto mempunyai tugas membantu Walikota melaksanakan urusan pemerintahan daerah di bidang komunikasi, informatika, statistik sektoral, dan persandian.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs sm:text-sm">
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Informasi & Komunikasi Publik</div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang E-Government & Aplikasi TIK</div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Infrastruktur Jaringan Telekomunikasi</div>
+            <div class="bg-white/5 p-3 rounded-xl border border-white/10">Bidang Statistik Sektoral & Persandian (CSIRT)</div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
+          <span>Alamat: Pasar Sawahlunto Blok A Lt. II</span>
+          <span>Email: kominfo@sawahluntokota.go.id</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Unduh Modal -->
+  <div id="unduhModal" class="hidden fixed inset-0 z-50 items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true">
+    <div id="unduhModalBackdrop" class="fixed inset-0 modal-backdrop"></div>
+    <div class="relative modal-box text-white rounded-3xl max-w-xl w-full max-h-[85vh] overflow-y-auto z-10 p-6 sm:p-8">
+      <button id="closeUnduhModal" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition cursor-pointer" aria-label="Tutup Unduh">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      <span class="inline-block px-3 py-1 rounded-full bg-sky-400/20 text-sky-200 text-xs font-medium uppercase tracking-wider mb-2">Dokumen Resmi</span>
+      <h3 class="font-primary font-bold text-2xl text-white mb-1">Unduhan Dokumen Publik</h3>
+      <p class="text-xs text-gray-300 font-secondary mb-6">Pilih dokumen resmi Diskominfo Kota Sawahlunto untuk diunduh</p>
+      <div id="unduhListContainer" class="space-y-2.5 font-secondary"></div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="news-data.js"></script>
+  <script src="berita-detail.js"></script>
+</body>
+</html>
