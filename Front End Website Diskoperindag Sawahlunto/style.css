@@ -1,0 +1,437 @@
+/* ============================================================
+   Panamera Web Fonts — Diskoperindag Kota Sawahlunto
+   ============================================================ */
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Regular.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Medium.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Bold.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Panamera';
+  src: url('assets/fonts/Panamera-Black.woff2') format('woff2'),
+       url('assets/fonts/Panamera-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================================
+   COLOR PALETTE: KOPERASI, UMKM, PERINDUSTRIAN & PERDAGANGAN
+   - Soft Sage / Mint Background: Kesuburan, Pertumbuhan, Pertanian
+   - Deep Forest Emerald: Koperasi Indonesia, Ketahanan Ekonomi Rakyat
+   - Songket Gold / Amber: Benang Emas Tenun Silungkang & Kemakmuran Niaga
+   ============================================================ */
+:root {
+  --bg-sky: #d6ece0;
+  --bg-sky-deep: #bfe0cd;
+  --bg-navy: #0d3829;
+  --bg-navy-card: #0d3829;
+  --bg-navy-light: #154c38;
+  --accent-gold: #c68a27;
+  --accent-gold-hover: #b57a1e;
+  --text-white: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-sky);
+  color: #000;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-sky);
+  color: #000;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-primary {
+  font-family: 'Panamera', sans-serif;
+}
+
+.font-secondary {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ============================================================
+   SMOOTH ENTRANCE & REVEAL SYSTEM
+   ============================================================ */
+.animate-word {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.animate-space {
+  display: inline;
+}
+
+.js-animate-ready .animate-word {
+  opacity: 0;
+  transform: translateY(18px);
+}
+
+.js-animate-ready .animate-word.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero image container */
+.hero-stage {
+  position: relative;
+  width: 100%;
+}
+
+.hero-frame {
+  width: 100%;
+  border-radius: 28px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 10px 30px -10px rgba(13, 56, 41, 0.16);
+  border: 1px solid rgba(13, 56, 41, 0.08);
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-frame:hover img {
+  transform: scale(1.02);
+}
+
+/* Navigation items */
+.nav-link {
+  color: #000;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1.1;
+  text-decoration: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  display: block;
+  padding: 2px 0;
+}
+
+.nav-link:hover {
+  opacity: 0.65;
+  transform: translateX(3px);
+}
+
+.nav-link.active {
+  color: var(--bg-navy);
+  border-bottom: 2.5px solid var(--bg-navy);
+  display: inline-block;
+}
+
+/* Card components */
+.news-card {
+  background-color: var(--bg-navy-card);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-white);
+  box-shadow: 0 16px 32px -8px rgba(13, 56, 41, 0.28);
+  border: 1px solid rgba(198, 138, 39, 0.2);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 44px -8px rgba(13, 56, 41, 0.4);
+  border-color: var(--accent-gold);
+}
+
+.news-card-img-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background-color: var(--bg-navy-light);
+}
+
+.news-card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.news-card:hover .news-card-img-wrap img {
+  transform: scale(1.05);
+}
+
+.news-card-body {
+  padding: 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.news-card-title {
+  font-family: 'Panamera', sans-serif;
+  font-weight: 700;
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  color: var(--text-white);
+}
+
+.news-card-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.news-card-btn {
+  align-self: flex-start;
+  background-color: #ffffff;
+  color: #0d3829;
+  font-family: 'Panamera', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.6rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, transform 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.news-card-btn:hover {
+  background-color: var(--accent-gold);
+  color: #ffffff;
+  transform: scale(1.04);
+}
+
+/* White feature cards */
+.feature-card {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 2rem;
+  box-shadow: 0 12px 28px -6px rgba(13, 56, 41, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid rgba(13, 56, 41, 0.08);
+}
+
+.feature-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 36px -6px rgba(13, 56, 41, 0.18);
+  border-color: rgba(198, 138, 39, 0.35);
+}
+
+/* Category Filter Pills */
+.category-pill {
+  padding: 0.55rem 1.25rem;
+  border-radius: 9999px;
+  font-family: 'Panamera', sans-serif;
+  font-weight: 700;
+  font-size: 0.9rem;
+  background-color: rgba(13, 56, 41, 0.08);
+  color: var(--bg-navy);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  white-space: nowrap;
+}
+
+.category-pill:hover {
+  background-color: rgba(13, 56, 41, 0.16);
+  transform: translateY(-2px);
+}
+
+.category-pill.active {
+  background-color: var(--bg-navy);
+  color: #ffffff;
+  border-color: var(--accent-gold);
+  box-shadow: 0 6px 16px -4px rgba(13, 56, 41, 0.35);
+}
+
+/* Price ticker item */
+.bapok-pill {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  box-shadow: 0 6px 18px -4px rgba(13, 56, 41, 0.08);
+  border-left: 4px solid var(--bg-navy);
+  border-top: 1px solid rgba(13, 56, 41, 0.05);
+  border-right: 1px solid rgba(13, 56, 41, 0.05);
+  border-bottom: 1px solid rgba(13, 56, 41, 0.05);
+  transition: transform 0.2s ease, border-left-color 0.2s ease;
+}
+
+.bapok-pill:hover {
+  transform: translateY(-3px);
+  border-left-color: var(--accent-gold);
+}
+
+/* Search Input */
+.search-input {
+  width: 100%;
+  padding: 0.85rem 1.4rem;
+  padding-left: 3rem;
+  border-radius: 9999px;
+  border: 2px solid rgba(13, 56, 41, 0.18);
+  background-color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  color: #0f172a;
+  outline: none;
+  transition: all 0.25s ease;
+}
+
+.search-input:focus {
+  border-color: var(--bg-navy);
+  box-shadow: 0 0 0 4px rgba(13, 56, 41, 0.15);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #d6ece0;
+}
+::-webkit-scrollbar-thumb {
+  background: #0d3829;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #154c38;
+}
+
+/* Massive Footer */
+.footer-big {
+  background-color: var(--bg-sky);
+  border-top: 2px solid rgba(13, 56, 41, 0.1);
+}
+
+.footer-massive-text {
+  font-family: 'Panamera', sans-serif;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+  color: #000000;
+  user-select: none;
+}
+
+/* Modal styling */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(13, 56, 41, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content-wrap {
+  background-color: #ffffff;
+  border-radius: 28px;
+  width: 100%;
+  max-width: 760px;
+  max-height: 88vh;
+  overflow-y: auto;
+  box-shadow: 0 25px 50px -12px rgba(13, 56, 41, 0.4);
+  border: 1px solid rgba(198, 138, 39, 0.3);
+  transform: scale(0.94) translateY(12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 2.5rem;
+  position: relative;
+}
+
+.modal-backdrop.open .modal-content-wrap {
+  transform: scale(1) translateY(0);
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(13, 56, 41, 0.08);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.modal-close-btn:hover {
+  background: rgba(13, 56, 41, 0.16);
+  transform: rotate(90deg);
+}
+
+/* Mobile responsive menu */
+#mobile-menu {
+  transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.3s ease;
+}
+
+#mobile-menu.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  display: none;
+}
+
+#mobile-menu:not(.hidden) {
+  max-height: 500px;
+  opacity: 1;
+  display: block;
+}

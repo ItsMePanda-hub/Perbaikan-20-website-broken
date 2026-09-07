@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Resmi Dinas Koperasi, Usaha Kecil Menengah, Perindustrian, dan Perdagangan (Diskoperindag) Kota Sawahlunto. Informasi layanan UMKM, Sentra Songket Silungkang, jadwal 4 pasar, dan harga bahan pokok.">
+  <title>Diskoperindag Kota Sawahlunto — Portal Resmi Dinas Koperasi, UKM, Perindustrian & Perdagangan</title>
+
+  <!-- Tailwind CSS CDN for utility baseline -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'sage-bg': '#d6ece0',
+            'sage-deep': '#bfe0cd',
+            'forest-brand': '#0d3829',
+            'forest-card': '#0d3829',
+            'forest-light': '#154c38',
+            'songket-gold': '#c68a27',
+          },
+          fontFamily: {
+            'primary': ['Panamera', 'sans-serif'],
+            'secondary': ['Poppins', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Custom Design System Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#d6ece0] text-black font-secondary antialiased selection:bg-[#0d3829] selection:text-white">
+
+  <!-- ============================================================
+       TOP CIVIC HEADER / NAVIGATION
+       ============================================================ -->
+  <header class="w-full pt-8 pb-4 px-6 md:px-12 lg:px-20 max-w-7xl mx-auto">
+    <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 border-b border-black/10 pb-6">
+      
+      <!-- Brand Title on the Left -->
+      <div class="flex items-center gap-4">
+        <a href="index.html" class="group block">
+          <h1 class="font-primary font-black text-2xl sm:text-3xl lg:text-4xl tracking-tight text-black group-hover:opacity-80 transition-opacity">
+            Diskoperindag Sawahlunto
+          </h1>
+          <p class="font-secondary text-xs sm:text-sm font-semibold tracking-wide text-black/70 uppercase mt-0.5">
+            Dinas Koperasi, UKM, Perindustrian dan Perdagangan
+          </p>
+        </a>
+      </div>
+
+      <!-- Navigation & Actions Container -->
+      <div class="flex flex-wrap items-center justify-between md:justify-end gap-6 sm:gap-10 w-full md:w-auto">
+        
+        <!-- Desktop Navigation Links -->
+        <nav class="hidden md:flex items-center gap-6 lg:gap-8 font-primary font-bold text-base lg:text-lg">
+          <a href="index.html" class="nav-link active" id="nav-beranda">beranda</a>
+          <button type="button" onclick="openProfilModal()" class="nav-link text-left bg-transparent border-none cursor-pointer p-0" id="nav-profil">profil</button>
+          <a href="pasar.html" class="nav-link" id="nav-pasar">pasar & umkm</a>
+          <a href="berita.html" class="nav-link" id="nav-berita">berita</a>
+          <button type="button" onclick="openUnduhModal()" class="nav-link text-left bg-transparent border-none cursor-pointer p-0" id="nav-unduh">unduh</button>
+        </nav>
+
+        <!-- Social Media Icons (Clean SVGs, Zero Emojis) -->
+        <div class="flex items-center gap-3">
+          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-[#0d3829] shadow-sm transition-all hover:scale-105 border border-black/5" title="Facebook Diskoperindag" aria-label="Facebook">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-[#0d3829] shadow-sm transition-all hover:scale-105 border border-black/5" title="Instagram Diskoperindag" aria-label="Instagram">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-[#0d3829] shadow-sm transition-all hover:scale-105 border border-black/5" title="YouTube Diskoperindag" aria-label="YouTube">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="mailto:koperindag@sawahluntokota.go.id" class="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-[#0d3829] shadow-sm transition-all hover:scale-105 border border-black/5" title="Kirim Pesan Email" aria-label="Email">
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l9.518 7.712 9.518-7.712v11.817h-19.036z"/></svg>
+          </a>
+        </div>
+
+        <!-- Official Emblem of Kota Sawahlunto -->
+        <div class="flex items-center pl-2 border-l border-black/15">
+          <img src="assets/logo-sawahlunto.png" alt="Lambang Resmi Pemerintah Kota Sawahlunto" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm">
+        </div>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button type="button" id="mobile-menu-btn" class="md:hidden p-2 text-black hover:text-[#0d3829]" aria-label="Buka Menu Navigasi">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Mobile Dropdown Menu -->
+    <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 border-b border-black/10">
+      <div class="flex flex-col gap-3 font-primary font-bold text-lg">
+        <a href="index.html" class="nav-link active">beranda</a>
+        <button type="button" onclick="openProfilModal()" class="nav-link text-left bg-transparent border-none cursor-pointer p-0">profil</button>
+        <a href="pasar.html" class="nav-link">pasar & umkm</a>
+        <a href="berita.html" class="nav-link">berita</a>
+        <button type="button" onclick="openUnduhModal()" class="nav-link text-left bg-transparent border-none cursor-pointer p-0">unduh</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       HERO SECTION WITH PANAMERA HEADING & HERITAGE CRAFTSMANSHIP
+       ============================================================ -->
+  <main class="w-full px-6 md:px-12 lg:px-20 max-w-7xl mx-auto pt-6 pb-16">
+    
+    <!-- Hero Headline & Subtitle -->
+    <div class="mb-8">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/80 text-[#0d3829] font-primary font-bold text-xs sm:text-sm tracking-wide mb-4 shadow-sm border border-[#0d3829]/15">
+        <span class="w-2.5 h-2.5 rounded-full bg-[#c68a27]"></span>
+        Pemerintah Kota Sawahlunto &bull; Koperasi & UMKM
+      </div>
+
+      <h2 id="hero-heading" class="font-primary font-black text-3xl sm:text-5xl lg:text-6xl leading-[1.08] tracking-tight text-black max-w-5xl">
+        Dinas Koperasi, Usaha Kecil Menengah, Perindustrian dan Perdagangan Kota Sawahlunto
+      </h2>
+
+      <p class="font-secondary text-base sm:text-lg text-black/75 mt-4 max-w-3xl leading-relaxed">
+        Mendorong kemandirian ekonomi rakyat, melestarikan warisan adiluhung Sentra Songket Silungkang, memfasilitasi legalitas UMKM, dan menjaga stabilitas 4 pasar tradisional daerah.
+      </p>
+    </div>
+
+    <!-- Hero Photography Container (Rounded Frame 28px) -->
+    <div class="hero-stage mb-12">
+      <div class="hero-frame">
+        <img src="assets/hero-koperindag.jpg" alt="Aktivitas Sentra Tenun Songket Silungkang dan Perdagangan Tradisional Kota Sawahlunto" class="w-full h-auto object-cover max-h-[560px]">
+        <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/85 via-black/45 to-transparent p-6 sm:p-10 text-white">
+          <div class="inline-block px-3 py-1 rounded-md bg-[#c68a27]/90 text-white font-primary font-bold text-xs uppercase tracking-wider mb-2 backdrop-blur-sm">
+            Warisan Budaya & Denyut Pasar Sawahlunto
+          </div>
+          <p class="font-primary font-bold text-lg sm:text-2xl lg:text-3xl text-white drop-shadow-md">
+            Harmoni Kearifan Lokal Songket Silungkang & Ketahanan Pangan Rakyat
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         LIVE WIDGET: SISTEM PEMANTAUAN HARGA BAHAN POKOK (SPH BAPOK)
+         ============================================================ -->
+    <section class="mb-16">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#0d3829] font-primary">Update Harian Pasar</span>
+          <h3 class="font-primary font-bold text-2xl sm:text-3xl text-black">Pantauan Harga Bahan Pokok (SPH Bapok)</h3>
+        </div>
+        <div class="text-xs text-black/70 font-medium">
+          Sumber Data: Surveyor Pasar Sawahlunto & Pasar Sapan (Update: September 2026)
+        </div>
+      </div>
+
+      <!-- Ticker Grid of Commodities -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="bapok-grid">
+        <!-- Injected via diskoperindag-data.js / app.js -->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         4 PILAR LAYANAN PUBLIK DISKOPERINDAG
+         ============================================================ -->
+    <section class="mb-20">
+      <div class="text-center max-w-3xl mx-auto mb-12">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#0d3829] font-primary">Fasilitasi & Pelayanan Publik</span>
+        <h3 class="font-primary font-bold text-3xl sm:text-4xl text-black mt-1">4 Pilar Layanan Unggulan Daerah</h3>
+        <p class="text-sm sm:text-base text-black/75 mt-2">
+          Komitmen pelayanan terpadu bagi pelaku usaha mikro, perajin sentra industri, pedagang pasar, serta masyarakat konsumen.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="services-grid">
+        <!-- Injected via diskoperindag-data.js / app.js -->
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SECTION BERITA TERKINI (3 HIGHLIGHT CARDS)
+         Clicking card or button NAVIGATES TO FULL PAGE: berita-detail.html
+         ============================================================ -->
+    <section class="mb-20" id="berita">
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 border-b border-black/10 pb-4">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-[#0d3829] font-primary">Publikasi Resmi</span>
+          <h3 class="font-primary font-bold text-3xl sm:text-4xl text-black mt-1">Berita Terkini Diskoperindag</h3>
+        </div>
+        <a href="berita.html" class="inline-flex items-center gap-2 font-primary font-bold text-base text-[#0d3829] hover:text-[#c68a27] hover:underline">
+          Lihat Semua Berita
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+        </a>
+      </div>
+
+      <!-- 3 Featured News Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="home-news-grid">
+        <!-- Injected via app.js with direct links to berita-detail.html?id=... -->
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       MASSIVE FOOTER — IDENTICAL TO CIVIC PHILOSOPHY
+       ============================================================ -->
+  <footer class="footer-big w-full pt-16 pb-12 px-6 md:px-12 lg:px-20 border-t border-black/10">
+    <div class="max-w-7xl mx-auto">
+      
+      <!-- Big Giant Typography Banner -->
+      <div class="footer-massive-text text-4xl sm:text-6xl md:text-7xl lg:text-8xl mb-12 select-none text-black">
+        Diskoperindag Sawahlunto
+      </div>
+
+      <!-- Footer Columns Info -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pb-12 border-b border-black/15 text-sm">
+        
+        <!-- Col 1: Alamat & Kontak Resmi -->
+        <div>
+          <h4 class="font-primary font-bold text-base text-black mb-3">Kantor Dinas</h4>
+          <p class="text-black/80 leading-relaxed mb-3">
+            Jalan Ir. H. Amran Nur, Desa Kolok Mudik, Kecamatan Barangin, Kota Sawahlunto, Sumatera Barat 27424
+          </p>
+          <p class="text-black/80"><strong>Telepon:</strong> (0754) 61062</p>
+          <p class="text-black/80"><strong>Email:</strong> koperindag@sawahluntokota.go.id</p>
+        </div>
+
+        <!-- Col 2: Jam Pelayanan & Hotline -->
+        <div>
+          <h4 class="font-primary font-bold text-base text-black mb-3">Jam Operasional</h4>
+          <p class="text-black/80 leading-relaxed mb-2">
+            Senin - Kamis: 07.30 - 16.00 WIB<br>
+            Jumat: 07.30 - 16.30 WIB<br>
+            Sabtu, Minggu & Hari Libur Nasional: Tutup
+          </p>
+          <div class="mt-4 p-3 rounded-xl bg-white/60 border border-black/5">
+            <span class="font-bold text-xs uppercase tracking-wider text-[#0d3829] block mb-1">Klinik UMKM & Tera</span>
+            <span class="text-xs text-black/75">Layanan tatap muka konsultasi perizinan NIB dan pengajuan tera di kantor dinas.</span>
+          </div>
+        </div>
+
+        <!-- Col 3: Jadwal 4 Pasar Tradisional -->
+        <div>
+          <h4 class="font-primary font-bold text-base text-black mb-3">Jadwal Pasar Daerah</h4>
+          <ul class="space-y-1.5 text-black/80">
+            <li><strong>Pasar Sapan:</strong> Senin & Kamis</li>
+            <li><strong>Pasar Talawi:</strong> Selasa & Jumat</li>
+            <li><strong>Pasar Sawahlunto:</strong> Rabu & Sabtu</li>
+            <li><strong>Pasar Silungkang:</strong> Minggu</li>
+          </ul>
+          <a href="pasar.html" class="inline-block mt-3 text-xs font-bold text-[#0d3829] hover:text-[#c68a27] underline">Lihat Detail 4 Pasar &rarr;</a>
+        </div>
+
+        <!-- Col 4: Tautan Cepat & Portal Pemko -->
+        <div>
+          <h4 class="font-primary font-bold text-base text-black mb-3">Tautan Resmi</h4>
+          <ul class="space-y-2 text-black/80">
+            <li><a href="http://sawahluntokota.go.id" target="_blank" rel="noopener noreferrer" class="hover:underline">Portal Resmi Pemko Sawahlunto</a></li>
+            <li><a href="berita.html" class="hover:underline">Portal Berita Daerah</a></li>
+            <li><button type="button" onclick="openProfilModal()" class="hover:underline bg-transparent border-none p-0 cursor-pointer text-left">Visi, Misi & Struktur</button></li>
+            <li><button type="button" onclick="openUnduhModal()" class="hover:underline bg-transparent border-none p-0 cursor-pointer text-left">Unduh Regulasi & Formulir</button></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright & Civic Watermark -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-black/70">
+        <div>
+          &copy; 2026 Pemerintah Kota Sawahlunto &mdash; Dinas Koperasi, Usaha Kecil Menengah, Perindustrian, dan Perdagangan. Hak Cipta Dilindungi Undang-Undang.
+        </div>
+        <div class="font-primary font-bold text-black/60">
+          Sawahlunto Estetik &bull; Futuristik &bull; Hidup & Menghidupi
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       MODAL PROFIL: VISI, MISI, STRUKTUR ORGANISASI & SAMBUTAN KADIS
+       ============================================================ -->
+  <div id="profil-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-content-wrap">
+      <button type="button" onclick="closeProfilModal()" class="modal-close-btn" aria-label="Tutup Modal Profil">
+        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="mb-6 border-b border-slate-100 pb-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#0d3829] font-primary">Profil Instansi</span>
+        <h3 class="font-primary font-bold text-2xl sm:text-3xl text-slate-900 mt-1">Dinas Koperasi, UKM, Perindustrian & Perdagangan</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Pemerintah Kota Sawahlunto, Provinsi Sumatera Barat</p>
+      </div>
+
+      <!-- Sambutan Kepala Dinas -->
+      <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 p-4 rounded-2xl bg-emerald-50/50 border border-emerald-200/60 mb-6">
+        <div class="w-20 h-20 rounded-full overflow-hidden bg-slate-200 shrink-0 border-2 border-[#0d3829]">
+          <img src="assets/hero.jpg" alt="Kepala Dinas Koperindag" class="w-full h-full object-cover">
+        </div>
+        <div>
+          <h4 class="font-primary font-bold text-lg text-slate-900">Tatang Sumarna, S.E.</h4>
+          <p class="text-xs font-semibold text-[#0d3829] mb-2">Kepala Dinas Koperindag Kota Sawahlunto</p>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            "Kami mendedikasikan seluruh daya untuk memastikan UMKM lokal berdaya saing, perajin Songket Silungkang terlindungi warisannya, dan pasar-pasar tradisional menjadi pusat pertumbuhan ekonomi yang nyaman dan tertib niaga."
+          </p>
+        </div>
+      </div>
+
+      <!-- Visi & Misi -->
+      <div class="space-y-4 mb-6">
+        <div>
+          <h5 class="font-primary font-bold text-base text-slate-900 mb-1">Visi Pembangunan</h5>
+          <p class="text-sm text-slate-700 italic bg-emerald-50/70 p-3 rounded-xl border-l-4 border-[#0d3829]">
+            "Sawahlunto Kota Wisata Yang Estetik, Futuristik, Hidup dan Menghidupi Berbasis Penguatan Ekonomi Kerakyatan"
+          </p>
+        </div>
+
+        <div>
+          <h5 class="font-primary font-bold text-base text-slate-900 mb-2">Misi Utama Instansi</h5>
+          <ul class="space-y-2 text-xs sm:text-sm text-slate-700 list-disc pl-5">
+            <li>Meningkatkan kapasitas kelembagaan, permodalan, dan akuntabilitas tata kelola koperasi daerah.</li>
+            <li>Menumbuhkembangkan UMKM yang tangguh, mandiri, dan berdaya saing melalui digitalisasi dan fasilitasi legalitas usaha.</li>
+            <li>Melestarikan dan memperkuat Sentra Industri Kecil Menengah (IKM) Tenun Songket Silungkang dan kerajinan kreatif unggulan.</li>
+            <li>Mewujudkan stabilitas pasokan dan harga bahan pokok serta penataan sarana prasarana 4 pasar tradisional daerah.</li>
+            <li>Mewujudkan perlindungan konsumen yang adil dan tertib niaga melalui pelayanan metrologi legal tera dan tera ulang UTTP.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Alamat Kantor Lengkap -->
+      <div class="p-3 rounded-xl bg-slate-100 text-xs text-slate-600">
+        <strong>Alamat Kantor:</strong> Jalan Ir. H. Amran Nur, Desa Kolok Mudik, Kecamatan Barangin, Kota Sawahlunto, Sumatera Barat 27424
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================================
+       MODAL UNDUH: FORMULIR TERA, REGULASI PASAR, PANDUAN NIB & HALAL
+       ============================================================ -->
+  <div id="unduh-modal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-content-wrap">
+      <button type="button" onclick="closeUnduhModal()" class="modal-close-btn" aria-label="Tutup Modal Unduh">
+        <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+
+      <div class="mb-6 border-b border-slate-100 pb-4">
+        <span class="text-xs font-bold uppercase tracking-widest text-[#0d3829] font-primary">Dokumen Publik</span>
+        <h3 class="font-primary font-bold text-2xl sm:text-3xl text-slate-900 mt-1">Unduh Formulir & Regulasi Resmi</h3>
+        <p class="text-xs sm:text-sm text-slate-500 mt-1">Akses berkas standar pelayanan dan peraturan daerah Diskoperindag</p>
+      </div>
+
+      <div class="space-y-3" id="public-docs-list">
+        <!-- Injected via diskoperindag-data.js / app.js -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared Data & Logic Scripts -->
+  <script src="diskoperindag-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
